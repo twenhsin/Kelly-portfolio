@@ -19,11 +19,17 @@
         >
           {{ link.label }}
         </NuxtLink>
+        <button
+          class="text-sm font-medium text-navy hover:text-teal transition-colors"
+          @click="showContact = true"
+        >
+          與我聯繫
+        </button>
         <NuxtLink
           to="/works"
           class="px-4 py-2 rounded-lg bg-navy text-white text-sm font-medium hover:opacity-90 transition-opacity"
         >
-          查看作品
+          設計專案
         </NuxtLink>
       </nav>
 
@@ -72,12 +78,18 @@
         >
           {{ link.label }}
         </NuxtLink>
+        <button
+          class="text-xl font-medium text-navy hover:text-teal transition-colors"
+          @click="showContact = true; menuOpen = false"
+        >
+          與我聯繫
+        </button>
         <NuxtLink
           to="/works"
           class="mt-2 px-8 py-3 rounded-lg bg-navy text-white text-base font-medium hover:opacity-90 transition-opacity"
           @click="menuOpen = false"
         >
-          查看作品
+          設計專案
         </NuxtLink>
       </nav>
     </div>
@@ -90,9 +102,10 @@ const menuOpen = ref(false)
 const router = useRouter()
 router.afterEach(() => { menuOpen.value = false })
 
+const showContact = useState('showContact', () => false)
+
 const navLinks = [
   { label: '關於我', to: '/about' },
-  { label: '與我聯繫', to: '/contact' },
 ]
 </script>
 

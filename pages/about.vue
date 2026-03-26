@@ -3,7 +3,7 @@
     <!-- ─────────────────────────────────────────────
          Section 1 — MY STORY
     ───────────────────────────────────────────── -->
-    <section class="max-w-6xl mx-auto px-6 pt-16 md:pt-24 pb-20">
+    <section class="max-w-6xl mx-auto px-6 pt-16 md:pt-24 pb-16 md:pb-48">
       <div class="story-layout">
 
         <!-- Left: label + title (~60%) -->
@@ -25,7 +25,7 @@
         </div>
 
         <!-- Right: paragraph with teal bg + corner decorations (~45%) -->
-        <div v-reveal="{ delay: 200 }" class="story-box story-desc-block">
+        <div class="story-desc-block story-box">
           <p class="text-sm text-gray-600 leading-loose mb-4">
             法國當代藝術碩士訓練出我的思辨底子——視覺是思維的具象，不是目的本身。
           </p>
@@ -47,9 +47,9 @@
     ───────────────────────────────────────────── -->
     <section class="bg-gray-50 py-20" style="position: relative; z-index: 0">
       <div class="max-w-6xl mx-auto px-6">
-        <div v-reveal class="mb-10">
+        <div v-reveal class="mb-10 text-center">
           <h2 class="text-2xl font-bold text-navy mb-2">設計主張</h2>
-          <div class="w-8 h-1 bg-teal rounded-full" />
+          <div class="w-8 h-1 bg-teal rounded-full mx-auto" />
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -97,7 +97,10 @@
     ───────────────────────────────────────────── -->
     <section class="py-20">
       <div class="max-w-4xl mx-auto px-6">
-        <h2 v-reveal class="text-2xl font-bold text-navy text-center mb-16">工作與學習歷程</h2>
+        <div v-reveal class="text-center mb-16">
+          <h2 class="text-2xl font-bold text-navy mb-2">工作與學習歷程</h2>
+          <div class="w-8 h-1 bg-teal rounded-full mx-auto" />
+        </div>
 
         <!-- Fixed-height scrollable timeline (no scrollbar) -->
         <div v-reveal="{ delay: 150 }" class="timeline-scroll" style="height: 70vh; overflow-y: auto;">
@@ -317,40 +320,45 @@ const timeline = [
 </script>
 
 <style scoped>
-/* MY STORY layout */
+/* MY STORY layout — mobile first */
 .story-layout {
   position: relative;
 }
 
 .story-title-block {
-  width: 60%;
+  width: 100%;
 }
 
-/* Description block: absolute on desktop, normal flow on mobile */
 .story-desc-block {
   position: relative;
-  z-index: 2;
+  width: 100%;
   margin-top: 2rem;
 }
 
+/* Desktop: absolute overlay on the right */
 @media (min-width: 1024px) {
   .story-layout {
-    min-height: 80vh;
-    overflow: visible;
+    position: relative;
+    min-height: 420px;
+  }
+
+  .story-title-block {
+    width: 100%;
   }
 
   .story-desc-block {
-    position: absolute;
-    right: calc(8% + 80px);
-    top: calc(50% - 120px);
-    transform: translateY(-50%);
-    width: calc(45% + 32px);
+    position: absolute !important;
+    right: calc(20% - 40px);
+    top: 40%;
+    width: 48%;
     margin-top: 0;
+    z-index: 1;
   }
 }
 
 /* MY STORY right block */
 .story-box {
+  position: relative;
   background: rgba(42, 157, 143, 0.08);
   border-radius: 12px;
   padding: 32px;

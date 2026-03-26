@@ -5,7 +5,7 @@
          Hero — two column, white bg
     ───────────────────────────────────────────── -->
     <section class="max-w-6xl mx-auto px-6 pt-16 md:pt-28 pb-16">
-      <div class="flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16">
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
 
         <!-- Left: copy -->
         <div v-reveal class="flex-1 min-w-0">
@@ -52,17 +52,6 @@
             </div>
           </div>
 
-          <!-- CTA -->
-          <a
-            href="#case-study"
-            class="inline-flex items-center gap-2 text-sm font-semibold"
-            style="color: #2A9D8F"
-          >
-            View Case Study
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </a>
         </div>
 
         <!-- Right: product screenshot -->
@@ -95,9 +84,10 @@
             <div class="w-1 h-4 rounded-full bg-teal" />
             <span class="text-xs font-semibold tracking-widest uppercase" style="color: #2A9D8F">{{ section.label }}</span>
           </div>
-          <h2 class="text-2xl font-bold text-navy mb-4" style="line-height: 1.5">
+          <h2 class="text-2xl font-bold text-navy mb-2" style="line-height: 1.5">
             {{ section.title }}
           </h2>
+          <div class="w-8 h-1 bg-teal rounded-full mb-4" :class="section.center ? 'mx-auto' : ''" />
           <p
             class="text-sm text-gray-600 leading-loose mb-10"
             :class="section.center ? 'mx-auto max-w-xl' : 'max-w-3xl'"
@@ -129,8 +119,8 @@
             class="rounded-xl p-5"
             style="background: rgba(42,157,143,0.06); border: 1px solid rgba(42,157,143,0.12)"
           >
-            <h4 class="text-sm font-bold text-navy mb-2">{{ point.title }}</h4>
-            <p class="text-xs text-gray-600 leading-relaxed">{{ point.body }}</p>
+            <h4 class="text-base font-bold text-navy mb-2">{{ point.title }}</h4>
+            <p class="text-sm text-gray-600 leading-relaxed">{{ point.body }}</p>
           </div>
         </div>
 
@@ -176,7 +166,7 @@
             <div class="flex items-center gap-2 mb-3">
               <span class="text-base">{{ card.icon }}</span>
               <h4
-                class="text-sm font-bold"
+                class="text-base font-bold"
                 :style="card.accent ? 'color: #fff' : 'color: #2A9D8F'"
               >{{ card.title }}</h4>
             </div>
@@ -201,11 +191,12 @@
         <div class="max-w-6xl mx-auto px-6">
           <!-- Section heading -->
           <div v-reveal class="mb-12">
-            <h2 class="text-2xl font-bold text-navy" style="line-height: 1.5">{{ section.title }}</h2>
+            <h2 class="text-2xl font-bold text-navy mb-2" style="line-height: 1.5">{{ section.title }}</h2>
+            <div class="w-8 h-1 bg-teal rounded-full" />
           </div>
 
           <!-- Phase cards -->
-          <div class="flex flex-col gap-8">
+          <div class="flex flex-col gap-24">
             <div
               v-for="(phase, pi) in section.phases"
               :key="pi"
@@ -213,13 +204,13 @@
             >
 
               <!-- ── Layout A: left label + right card (Phase 1 style) ── -->
-              <div v-if="phase.steps" class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+              <div v-if="phase.steps" class="flex flex-col md:flex-row gap-6 md:gap-16 items-start">
                 <!-- Left col: full on mobile, ~32% on desktop -->
                 <div class="w-full md:w-[32%] md:flex-shrink-0">
                   <div class="text-6xl font-black mb-2 leading-none" style="color: rgba(42,157,143,0.22)">
                     {{ String(pi + 1).padStart(2, '0') }}
                   </div>
-                  <h3 class="text-base font-bold text-navy mb-4">{{ phase.title }}</h3>
+                  <h3 class="text-xl font-bold text-navy mb-4">{{ phase.title }}</h3>
                   <div v-if="phase.tags" class="flex flex-wrap gap-2">
                     <span
                       v-for="tag in phase.tags"
@@ -248,8 +239,8 @@
                           style="background: #2A9D8F"
                         >{{ si + 1 }}</span>
                         <div>
-                          <div class="text-sm font-bold text-navy">{{ step.title }}</div>
-                          <div class="text-xs text-gray-500 leading-relaxed mt-0.5">{{ step.sub }}</div>
+                          <div class="text-base font-bold text-navy">{{ step.title }}</div>
+                          <div class="text-sm text-gray-500 leading-relaxed mt-0.5">{{ step.sub }}</div>
                         </div>
                       </div>
                     </div>
@@ -261,14 +252,48 @@
                       style="flex: 4; background: rgba(42,157,143,0.08); border: 1px solid rgba(42,157,143,0.15)"
                     >
                       <div class="text-xs font-bold tracking-widest uppercase mb-2" style="color: #2A9D8F">Key Discovery</div>
-                      <p class="text-xs text-gray-600 leading-relaxed">{{ phase.discovery }}</p>
+                      <p class="text-sm text-gray-600 leading-relaxed">{{ phase.discovery }}</p>
                     </div>
                   </div>
                 </div>
               </div>
 
+              <!-- ── Layout D: security / standalone section ── -->
+              <div
+                v-else-if="phase.securitySection"
+                class="rounded-2xl p-8"
+                style="background: #fff; border: 1px solid rgba(0,0,0,0.06); box-shadow: 0 2px 16px rgba(0,0,0,0.04)"
+              >
+                <!-- Sub-badge -->
+                <div v-if="phase.subBadge" class="mb-4">
+                  <span
+                    class="inline-flex items-center gap-1.5"
+                    style="background: rgba(42,157,143,0.12); color: #2A9D8F; border-radius: 999px; padding: 4px 12px; font-size: 13px; font-weight: 600"
+                  >
+                    <!-- Shield icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.955 11.955 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                    </svg>
+                    {{ phase.subBadge.text }}
+                  </span>
+                </div>
+                <h3 class="text-xl font-bold text-navy mb-3">{{ phase.title }}</h3>
+                <p class="text-sm text-gray-600 leading-loose mb-8 max-w-3xl">{{ phase.body }}</p>
+                <div v-if="phase.points" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  <div
+                    v-for="point in phase.points"
+                    :key="point.title"
+                    class="rounded-xl p-5"
+                    style="background: rgba(42,157,143,0.06); border: 1px solid rgba(42,157,143,0.12)"
+                  >
+                    <h4 class="text-base font-bold text-navy mb-2">{{ point.title }}</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">{{ point.body }}</p>
+                  </div>
+                </div>
+              </div>
+
               <!-- ── Layout B: left card + right label (Phase 2 style, mirrored) ── -->
-              <div v-else-if="!phase.accent" class="flex flex-col-reverse md:flex-row gap-6 md:gap-8 items-start">
+              <div v-else-if="!phase.accent" class="flex flex-col-reverse md:flex-row gap-6 md:gap-16 items-start">
 
                 <!-- Left: white card (~68%) -->
                 <div
@@ -313,7 +338,7 @@
                   <!-- Bottom KEY DISCOVERY -->
                   <div v-if="phase.discoveryBottom" class="rounded-xl p-5" style="background: rgba(42,157,143,0.08); border: 1px solid rgba(42,157,143,0.15)">
                     <div class="text-xs font-bold tracking-widest uppercase mb-2" style="color: #2A9D8F">Key Discovery</div>
-                    <p class="text-sm text-navy font-semibold mb-1">{{ phase.discoveryBottom.title }}</p>
+                    <p class="text-base text-navy font-semibold mb-1">{{ phase.discoveryBottom.title }}</p>
                     <p class="text-sm text-gray-600 leading-loose">{{ phase.discoveryBottom.body }}</p>
                   </div>
                 </div>
@@ -335,13 +360,26 @@
                 class="rounded-2xl p-8"
                 style="background: rgba(42,157,143,0.08); border: 1px solid rgba(42,157,143,0.15)"
               >
+                <!-- Sub-badge -->
+                <div v-if="phase.subBadge" class="mb-4">
+                  <span
+                    class="inline-flex items-center gap-1.5"
+                    style="background: rgba(42,157,143,0.12); color: #2A9D8F; border-radius: 999px; padding: 4px 12px; font-size: 13px; font-weight: 600"
+                  >
+                    <!-- Sparkle icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
+                    </svg>
+                    {{ phase.subBadge.text }}
+                  </span>
+                </div>
                 <h3 class="text-xl font-bold text-navy mb-4">{{ phase.title }}</h3>
                 <p class="text-sm text-gray-600 leading-loose mb-6">{{ phase.leftBody }}</p>
                 <div v-if="phase.comparison" class="grid sm:grid-cols-2 gap-6">
                   <div v-for="col in phase.comparison" :key="col.label">
                     <div class="flex items-center gap-2 mb-2">
                       <span class="text-base">{{ col.icon }}</span>
-                      <span class="text-sm font-semibold" :style="col.accent ? 'color: #2A9D8F' : 'color: #1B2A4A'">{{ col.label }}</span>
+                      <span class="text-base font-semibold" :style="col.accent ? 'color: #2A9D8F' : 'color: #1B2A4A'">{{ col.label }}</span>
                     </div>
                     <p class="text-sm text-gray-600 leading-loose">{{ col.body }}</p>
                   </div>
@@ -362,42 +400,41 @@
         <div class="max-w-6xl mx-auto px-6">
           <!-- Centered heading -->
           <div v-reveal class="text-center mb-12">
-            <h2 class="text-2xl font-bold text-navy">{{ section.title }}</h2>
+            <h2 class="text-2xl font-bold text-navy mb-2">{{ section.title }}</h2>
+            <div class="w-8 h-1 bg-teal rounded-full mx-auto" />
           </div>
 
-          <!-- Two columns -->
-          <div v-reveal="{ delay: 100 }" class="grid md:grid-cols-2 gap-6">
-            <!-- Left: 最終結果 (light card) -->
-            <div class="rounded-2xl p-8" style="background: #f9fafb; border: 1px solid rgba(0,0,0,0.06)">
-              <div class="flex items-center gap-2 mb-6">
-                <div class="w-1 h-5 rounded-full" style="background: #2A9D8F" />
-                <h3 class="text-base font-bold text-navy">{{ section.outcomes.left.title }}</h3>
-              </div>
-              <div class="flex flex-col gap-5">
-                <div v-for="item in section.outcomes.left.items" :key="item.title" class="flex gap-3 items-start">
-                  <svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color: #2A9D8F" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                  <div>
-                    <div class="text-sm font-bold text-navy mb-1">{{ item.title }}</div>
-                    <p class="text-sm text-gray-600 leading-loose">{{ item.body }}</p>
-                  </div>
+          <!-- Top: 最終結果 (light card) -->
+          <div v-reveal="{ delay: 100 }" class="rounded-2xl p-8 mb-6" style="background: #fff; border: 1px solid rgba(0,0,0,0.06)">
+            <div class="flex items-center gap-2 mb-6">
+              <div class="w-1 h-5 rounded-full" style="background: #2A9D8F" />
+              <h3 class="text-base font-bold text-navy">{{ section.outcomes.left.title }}</h3>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div v-for="item in section.outcomes.left.items" :key="item.title" class="flex gap-3 items-start">
+                <svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color: #2A9D8F" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <div>
+                  <div class="text-base font-bold text-navy mb-1">{{ item.title }}</div>
+                  <p class="text-sm text-gray-600 leading-loose">{{ item.body }}</p>
                 </div>
               </div>
             </div>
+          </div>
 
-            <!-- Right: 實踐洞察 (teal accent card) -->
-            <div class="rounded-2xl p-8" style="background: #2A9D8F">
-              <div class="flex items-center gap-2 mb-6">
-                <div class="w-1 h-5 rounded-full" style="background: rgba(255,255,255,0.6)" />
-                <h3 class="text-base font-bold text-white">{{ section.outcomes.right.title }}</h3>
-              </div>
-              <div class="mb-6">
-                <div class="text-sm font-bold text-white mb-2">{{ section.outcomes.right.insight.title }}</div>
-                <p class="text-sm leading-loose" style="color: rgba(255,255,255,0.85)">{{ section.outcomes.right.insight.body }}</p>
-              </div>
-              <p class="text-base font-bold text-white leading-relaxed">{{ section.outcomes.right.closing }}</p>
+          <!-- Bottom: 實踐洞察 (teal accent card) -->
+          <div v-reveal="{ delay: 150 }" class="rounded-2xl p-8" style="background: #2A9D8F">
+            <div class="flex items-center gap-2 mb-6">
+              <div class="w-1 h-4 rounded-full" style="background: rgba(255,255,255,0.5)" />
+              <span class="text-sm md:text-base font-semibold" style="color: rgba(255,255,255,0.7)">{{ section.outcomes.right.title }}</span>
             </div>
+            <div class="text-8xl font-black leading-none mb-2 select-none" style="color: rgba(255,255,255,0.25); font-family: Georgia, serif; line-height: 0.8">"</div>
+            <p class="text-sm md:text-base leading-loose mb-8 max-w-3xl" style="color: rgba(255,255,255,0.9)">{{ section.outcomes.right.insight.body }}</p>
+            <blockquote
+              class="border-l-2 pl-5 italic leading-loose"
+              style="font-size: 24px; border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.85)"
+            >{{ section.outcomes.right.closing }}</blockquote>
           </div>
         </div>
       </section>
@@ -477,7 +514,7 @@ const project = {
       hideLabel: true,
       bg: '#f9fafb',
       title: '專案核心',
-      body: '這件作品的核心目標不是驗證產品市場可行性，而是實踐一個問題的答案：設計師如何透過 AI 協作工具，逐步建立 AI workflow，主導一個產品從零到一？',
+      body: '這件作品的核心目標不是驗證產品市場可行性，而是實踐一個問題的答案：設計師如何透過 AI 協作工具，逐步建立 AI workflow，主導一個產品從零到一。',
       highlights: [
         {
           icon: '⚠',
@@ -557,6 +594,7 @@ const project = {
         {
           accent: true,
           title: 'Generative UI 的實踐',
+          subBadge: { text: '設計思維的轉變' },
           leftBody: '從「預定義元件」轉向「定義生成規則」。由設計師設定情境與系統約束，讓 AI 根據用戶意圖動態調用介面，實現設計語言一致性與介面的靈活性共存的體驗。',
           comparison: [
             {
@@ -571,6 +609,17 @@ const project = {
               accent: true,
               body: '為人工智慧解釋和部署定義系統約束和語義邏輯。',
             },
+          ],
+        },
+        {
+          securitySection: true,
+          title: 'AI 安全防護機制',
+          subBadge: { text: 'AI 邊界的意識' },
+          body: '導入 AI 功能，不只是定義 AI 能做什麼——同時也要設計 AI 的行為邊界。安全防護機制確保 AI 在明確的使用範圍內運作，保護使用者體驗與系統資源。',
+          points: [
+            { title: 'off-topic 拒絕', body: '非記帳相關問題直接拒絕回應，確保 AI 在明確的使用範圍內運作。' },
+            { title: 'Prompt Injection 防護', body: '偵測並拒絕「忘掉你的指令」類攻擊，防止 AI 被引導執行超出範圍的行為。' },
+            { title: '輸入長度限制', body: '前端設定 200 字上限，防止超長輸入攻擊，同時保護 API 額度不被濫用。' },
           ],
         },
       ],
@@ -595,12 +644,15 @@ const project = {
               title: '工作流程層面',
               body: '從視覺與功能探索到開發交付，建立了一套以 AI 協作為核心的完整工作循環。這套流程不限制於此專案，可直接沿用於下一個 0-1 產品的快速啟動。',
             },
+            {
+              title: '可複用 AI 產品框架',
+              body: '這件作品建立的不只是一個產品，而是一套可快速複製的 AI 產品開發框架——Nuxt 3 + Supabase + Claude/GPT API + Vercel + PWA。涵蓋 RLS 權限設計、API 安全防護、成本控制與 iOS 相容性的實戰經驗，可直接沿用於下一個 AI 產品的快速啟動。',
+            },
           ],
         },
         right: {
           title: '實踐洞察',
           insight: {
-            title: '思維複利',
             body: '真正的效率不僅在於速度，更在於專案間的「知識流動」。從快速工程和代幣管理中學到的經驗教訓能夠帶來累積優勢。',
           },
           closing: '當 AI 釋放了生產力，設計師的價值便回歸到「定義規則」，「系統建構」與「專業判斷」：我們不只是在完成專案，是在建構一套能夠演進的邏輯系統。',
@@ -619,8 +671,8 @@ const project = {
     ],
   },
 
-  prev: { to: '/works/work-1', title: 'Work 01' },
-  next: { to: '/works/work-3', title: 'Work 03' },
+  prev: { to: '/works/designops', title: 'DesignOps' },
+  next: { to: '/works/cohealing', title: 'CoHealing' },
 }
 </script>
 

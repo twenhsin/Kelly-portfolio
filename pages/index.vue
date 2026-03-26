@@ -20,17 +20,17 @@
         </p>
 
         <div class="flex gap-4">
-          <NuxtLink
-            to="/contact"
+          <button
             class="flex-1 px-6 py-3 rounded-lg bg-teal text-white font-medium hover:opacity-90 transition-opacity text-center"
+            @click="showContact = true"
           >
             與我聯繫
-          </NuxtLink>
+          </button>
           <NuxtLink
             to="/works"
             class="flex-1 px-6 py-3 rounded-lg border border-navy text-navy font-medium hover:bg-navy hover:text-white transition-colors text-center"
           >
-            查看作品
+            設計專案
           </NuxtLink>
         </div>
       </div>
@@ -124,15 +124,15 @@
         <ProjectCard
           v-reveal
           type="設計系統 / DesignOps"
-          title="AI-Assisted DesignOps System"
+          title="DesignOps System"
           description="以 Figma MCP + Claude Code 為核心，建立讓 AI 可以正確讀取並執行的設計系統基礎建設。"
-          :tags="['設計系統', 'Token 建置', 'DesignOps', 'AI 協作']"
+          :tags="['設計系統', '視覺數據化', 'DesignOps', 'AI 協作']"
           gradient="linear-gradient(135deg, #c9a27e, #b5845a)"
         />
         <ProjectCard
           v-reveal
-          type="產品設計 / Generative UI"
-          title="Flow 帳"
+          type="AI-native 產品 / Generative UI"
+          title="Filo"
           description="從產品概念到部署上線，完整實踐 AI 協作的開發流程——透過 AI 互動讓介面根據使用者行為動態回應（Generative UI）。"
           :tags="['AI 協作', '產品設計', '全端開發', 'AI Workflow']"
           gradient="linear-gradient(135deg, #f4a97f, #e8856a)"
@@ -141,10 +141,11 @@
         <ProjectCard
           v-reveal
           type="產品策略 / 0-to-1"
-          title="真實創業產品策略"
+          title="Cohealing"
           description="從品牌定位到產品規劃，一個真實創業場景的完整策略決策過程。"
           :tags="['產品策略', '0-to-1', '品牌定位', 'UIUX 設計']"
           gradient="linear-gradient(135deg, #e8c97a, #d4a840)"
+          image="/images/Hero3.png"
         />
       </div>
 
@@ -193,6 +194,10 @@
     </section>
   </div>
 </template>
+
+<script setup>
+const showContact = useState('showContact', () => false)
+</script>
 
 <style scoped>
 .blink-eye {

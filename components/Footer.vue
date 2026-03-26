@@ -6,7 +6,7 @@
         <NuxtLink to="/">
           <img src="/images/Logo.svg" alt="Tsai Wen Hsin" class="h-7" />
         </NuxtLink>
-        <p class="text-xs text-gray-400">© 2024 Tsai Wen Hsin. Built with precision.</p>
+        <p class="text-xs text-gray-400">© 2026 Tsai Wen Hsin</p>
       </div>
 
       <!-- Right: contact + social -->
@@ -14,10 +14,10 @@
         <div class="flex flex-col gap-2">
           <span class="text-sm font-semibold text-navy">Contact</span>
           <a
-            href="mailto:hello@tsaiwenhsin.com"
+            href="mailto:wenhsin600@gmail.com"
             class="text-sm text-gray-500 hover:text-teal transition-colors"
           >
-            hello@tsaiwenhsin.com
+            wenhsin600@gmail.com
           </a>
         </div>
 
