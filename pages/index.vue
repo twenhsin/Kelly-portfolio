@@ -7,16 +7,15 @@
       <!-- Left: copy -->
       <div v-reveal class="flex-1 flex flex-col gap-6">
         <span class="text-xs font-semibold tracking-widest uppercase" style="color: #2A9D8F">
-          UI/UX Designer
+          AI 協作設計師
         </span>
 
         <h1 class="text-4xl md:text-5xl font-bold text-navy" style="line-height: 1.4">
-          用設計解決產品問題，定義設計師與 AI 協作的工作方式。
+          用策略與系統思維解決產品問題，定義設計師與 AI 協作的工作方式。
         </h1>
 
         <p class="text-base text-gray-500 leading-relaxed max-w-md">
-          從藝術創作到產品設計，從執行計畫到規劃策略，歷經各規模團隊的完整視角——現在把這些積累帶入
-          AI 時代，重新思考設計師的工作方式。
+          從藝術到產品、從執行到策略，我把跨團隊經驗帶入 AI 時代。
         </p>
 
         <div class="flex gap-4">
@@ -61,7 +60,7 @@
           <SkillCard
             v-reveal="{ delay: 0 }"
             title="系統與流程"
-            description="從 token 架構到元件規範，建立設計系統讓團隊決策有依據、迭代有基礎。"
+            description="建立 DesignOps、Token 架構與元件規範，讓設計與開發擁有共同語言與自動化基礎。"
           >
             <template #icon>
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
@@ -72,20 +71,8 @@
 
           <SkillCard
             v-reveal="{ delay: 150 }"
-            title="產品思維"
-            description="介面之前定義問題——功能規劃、流程架構，設計決策服務於產品邏輯。"
-          >
-            <template #icon>
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9.5 21h5M12 3a6 6 0 0 1 6 6c0 2.22-1.21 4.16-3 5.2V17a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2.8A6 6 0 0 1 6 9a6 6 0 0 1 6-6z" />
-              </svg>
-            </template>
-          </SkillCard>
-
-          <SkillCard
-            v-reveal="{ delay: 300 }"
             title="AI 協作"
-            description="人做決策與判斷，AI 執行與回饋——設計可重複執行的協作流程，在每個環節選擇合適的工具。"
+            description="建立「人決策、AI 執行」的可重複的設計工作流程。"
           >
             <template #icon>
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
@@ -95,9 +82,21 @@
           </SkillCard>
 
           <SkillCard
+            v-reveal="{ delay: 300 }"
+            title="產品思維"
+            description="在介面前先定義問題，讓設計決策服務於產品目標與使用者需求。"
+          >
+            <template #icon>
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.5 21h5M12 3a6 6 0 0 1 6 6c0 2.22-1.21 4.16-3 5.2V17a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2.8A6 6 0 0 1 6 9a6 6 0 0 1 6-6z" />
+              </svg>
+            </template>
+          </SkillCard>
+
+          <SkillCard
             v-reveal="{ delay: 450 }"
             title="跨角色溝通"
-            description="能用設計語言和工程師對話，也能用產品邏輯和 PM 對齊——減少翻譯成本，加速決策。"
+            description="用設計語言對工程師，用產品邏輯對 PM，縮短溝通落差並加速決策。"
           >
             <template #icon>
               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-teal" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
@@ -123,27 +122,30 @@
       <div class="flex flex-col gap-16">
         <ProjectCard
           v-reveal
-          type="設計系統 / DesignOps"
+          to="/works/designops"
+          type="DesignOps / 規格同步"
           title="DesignOps System"
-          description="以 Figma MCP + Claude Code 為核心，建立讓 AI 可以正確讀取並執行的設計系統基礎建設。"
-          :tags="['設計系統', '視覺數據化', 'DesignOps', 'AI 協作']"
+          description="消除設計與開發端的規格斷層，透過自動化同步讓設計規格與開發環境保持一致。"
+          :tags="['視覺數據化', 'Design Tokens', 'Design-to-Code', 'Single Source of Truth']"
           gradient="linear-gradient(135deg, #c9a27e, #b5845a)"
         />
         <ProjectCard
           v-reveal
-          type="AI-native 產品 / Generative UI"
+          to="/works/filo"
+          type="AI-NATIVE 產品 / Code-to-Design 工作流"
           title="Filo"
-          description="從產品概念到部署上線，完整實踐 AI 協作的開發流程——透過 AI 互動讓介面根據使用者行為動態回應（Generative UI）。"
-          :tags="['AI 協作', '產品設計', '全端開發', 'AI Workflow']"
+          description="打造內建 Generative UI 的 AI-native 產品，建立 Code-to-Design 雙向同步工作流，實現代碼即設計，同步完成高保真原型驗證。"
+          :tags="['Generative UI', '快速原型', 'AI Workflow', '雙向同步']"
           gradient="linear-gradient(135deg, #f4a97f, #e8856a)"
           :reverse="true"
         />
         <ProjectCard
           v-reveal
+          to="/works/cohealing"
           type="產品策略 / 0-to-1"
           title="Cohealing"
-          description="從品牌定位到產品規劃，一個真實創業場景的完整策略決策過程。"
-          :tags="['產品策略', '0-to-1', '品牌定位', 'UIUX 設計']"
+          description="從品牌定位到產品規劃，完成 0-to-1 的完整設計交付。"
+          :tags="['產品策略', '品牌定位', '0-to-1', 'UIUX 設計']"
           gradient="linear-gradient(135deg, #e8c97a, #d4a840)"
           image="/images/Hero3.png"
         />

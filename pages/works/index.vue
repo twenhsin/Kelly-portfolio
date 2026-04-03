@@ -35,11 +35,11 @@
           style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.05); transition: box-shadow 0.3s, transform 0.3s"
         >
           <!-- Cover image -->
-          <div
-            class="w-full flex items-center justify-center"
-            :style="`background: ${work.gradient}; min-height: 240px;`"
-          >
-            <span class="text-white/30 text-sm">Cover Image</span>
+          <div class="w-full overflow-hidden" style="min-height: 240px;">
+            <img v-if="work.cover" :src="work.cover" :alt="work.title" class="w-full h-full object-cover" style="min-height: 240px;" />
+            <div v-else class="w-full h-full flex items-center justify-center" :style="`background: ${work.gradient}; min-height: 240px;`">
+              <span class="text-white/30 text-sm">Cover Image</span>
+            </div>
           </div>
 
           <!-- Text area -->
@@ -115,6 +115,7 @@ const works = [
     description: '以 Figma MCP + Claude Code 為核心，建立讓 AI 可以正確讀取並執行的設計系統基礎建設。',
     tags: ['設計系統', '視覺數據化', 'DesignOps', 'AI 協作'],
     gradient: 'linear-gradient(135deg, #1B2A4A 0%, #2A9D8F 100%)',
+    cover: '/images/work1/hero.png',
   },
   {
     to: '/works/filo',
@@ -123,6 +124,7 @@ const works = [
     description: '從產品概念到部署上線，完整實踐 AI 協作的開發流程——透過 AI 互動讓介面根據使用者行為動態回應（Generative UI）。',
     tags: ['AI 協作', '產品設計', '全端開發', 'AI Workflow'],
     gradient: 'linear-gradient(135deg, #2A4A6B 0%, #2A9D8F 100%)',
+    cover: '',
   },
   {
     to: '/works/cohealing',

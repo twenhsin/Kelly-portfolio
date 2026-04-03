@@ -47,11 +47,8 @@
 
         <!-- Right: hero visual -->
         <div v-reveal="{ delay: 150 }" class="flex-1 min-w-0 w-full">
-          <div
-            class="w-full rounded-2xl overflow-hidden"
-            style="background: #0F1117; min-height: 400px; display: flex; align-items: center; justify-content: center;"
-          >
-            <span class="text-gray-600 text-sm">Hero Visual Placeholder</span>
+          <div class="w-full rounded-2xl overflow-hidden">
+            <img src="/images/work1/hero.png" alt="DesignOps System Hero" class="w-full h-auto object-cover" />
           </div>
         </div>
 
@@ -64,7 +61,7 @@
     <section
       v-for="(section, idx) in project.sections.filter(s => !s.phases && !s.outcomes)"
       :key="idx"
-      class="py-16"
+      class="py-[84px]"
       :style="section.bg ? `background: ${section.bg}` : ''"
     >
       <div class="max-w-6xl mx-auto px-6">
@@ -183,128 +180,217 @@
     </section>
 
     <!-- ─────────────────────────────────────────────
-         4. 過程 — Phases Section
+         4. 過程
     ───────────────────────────────────────────── -->
-    <template v-for="(section, idx) in project.sections" :key="'phase-' + idx">
-      <section
-        v-if="section.phases"
-        class="py-16"
-        :style="section.bg ? `background: ${section.bg}` : ''"
-      >
-        <div class="max-w-6xl mx-auto px-6">
-          <div v-reveal class="mb-12">
-            <div v-if="!section.hideLabel" class="flex items-center gap-2 mb-3">
-              <div class="w-1 h-4 rounded-full" style="background: #2A9D8F" />
-              <span class="text-xs font-semibold tracking-widest uppercase" style="color: #2A9D8F">{{ section.label }}</span>
-            </div>
-            <h2 class="text-2xl font-bold text-navy mb-2" style="line-height: 1.5">{{ section.title }}</h2>
-            <div class="w-8 h-1 bg-teal rounded-full" />
-            <p v-if="section.body" class="text-sm text-gray-600 leading-loose mt-3 max-w-3xl">{{ section.body }}</p>
+    <section class="py-[84px]" style="background: #f9fafb">
+      <div class="max-w-6xl mx-auto px-6">
+
+        <!-- Section heading -->
+        <div v-reveal class="mb-12">
+          <h2 class="text-2xl font-bold text-navy mb-2">過程</h2>
+          <div class="w-8 h-1 rounded-full" style="background: #2A9D8F" />
+        </div>
+
+        <!-- Phase 01 -->
+        <div v-reveal class="flex flex-col">
+
+          <!-- Header: number + title + subtitle -->
+          <div style="margin-bottom: 80px">
+            <div class="text-6xl font-black mb-2 leading-none" style="color: rgba(42,157,143,0.22)">01</div>
+            <h3 class="text-xl font-bold text-navy mb-2">視覺數據化</h3>
+            <p class="text-sm text-gray-600 leading-loose">讓 AI 讀懂設計決策</p>
           </div>
 
-          <!-- Phase cards -->
-          <div class="flex flex-col gap-24">
-            <div
-              v-for="(phase, pi) in section.phases"
-              :key="pi"
-              v-reveal="{ delay: pi * 100 }"
-            >
-              <!-- Phase layout: supports normal (label-left) and mirror (card-left) -->
-              <div
-                class="flex gap-6 md:gap-16 items-start"
-                :class="phase.mirror ? 'flex-col md:flex-row' : 'flex-col md:flex-row'"
-              >
-                <!-- Label col — shown first normally, shown last when mirror -->
-                <div
-                  class="w-full md:w-[32%] md:flex-shrink-0"
-                  :class="phase.mirror ? 'md:order-2' : 'md:order-1'"
-                >
-                  <div class="text-6xl font-black mb-2 leading-none" style="color: rgba(42,157,143,0.22)">
-                    {{ String(pi + 1).padStart(2, '0') }}
-                  </div>
-                  <h3 class="text-xl font-bold text-navy mb-2">{{ phase.title }}</h3>
-                  <p v-if="phase.sideBody" class="text-sm text-gray-600 leading-loose">{{ phase.sideBody }}</p>
-                </div>
-
-                <!-- Card col -->
-                <div
-                  class="flex-1 min-w-0 flex flex-col gap-4"
-                  :class="phase.mirror ? 'md:order-1' : 'md:order-2'"
-                >
-                  <!-- White outer card -->
-                  <div
-                    class="rounded-2xl p-6 flex flex-col gap-6"
-                    style="background: #fff; border: 1px solid rgba(0,0,0,0.07); box-shadow: 0 2px 16px rgba(0,0,0,0.05)"
-                  >
-                    <template v-for="(sub, si) in phase.card.sections" :key="si">
-                    <hr v-if="si > 0" style="border: none; border-top: 1px dashed #E4E7EC" />
-                    <div class="flex flex-col gap-3">
-                      <!-- Sub-section header -->
-                      <div class="flex items-center gap-2">
-                        <div class="w-1 h-3.5 rounded-full flex-shrink-0" style="background: #2A9D8F" />
-                        <h4 class="text-base font-bold text-navy">{{ sub.title }}</h4>
-                      </div>
-                      <!-- Body -->
-                      <p v-if="sub.body" class="text-sm text-gray-600 leading-loose">{{ sub.body }}</p>
-                      <!-- Token layers (horizontal arrows) -->
-                      <div v-if="sub.layers" class="flex flex-col sm:flex-row items-stretch gap-0">
-                        <template v-for="(layer, li) in sub.layers" :key="li">
-                          <div
-                            class="flex-1 rounded-xl px-4 py-3"
-                            style="border: 1px solid rgba(42,157,143,0.15); background: rgba(42,157,143,0.04)"
-                          >
-                            <div class="text-xs font-bold text-navy mb-0.5">{{ layer.name }}</div>
-                            <div class="text-xs text-gray-500 leading-relaxed">{{ layer.desc }}</div>
-                          </div>
-                          <div
-                            v-if="li < sub.layers.length - 1"
-                            class="flex items-center justify-center px-2 py-2 sm:py-0 flex-shrink-0"
-                            style="color: #2A9D8F"
-                          >
-                            <svg class="hidden sm:block w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                            </svg>
-                            <svg class="sm:hidden w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                          </div>
-                        </template>
-                      </div>
-                      <!-- Inner card -->
-                      <div
-                        v-if="sub.innerCard"
-                        class="rounded-xl p-4"
-                        :style="`background: ${sub.innerCard.bg}; border: 1px solid ${sub.innerCard.border}`"
-                      >
-                        <p class="text-sm text-gray-600 leading-loose">{{ sub.innerCard.body }}</p>
-                      </div>
-                    </div>
-                    </template>
-                  </div>
-
-                  <!-- Accent card below white card -->
-                  <div
-                    v-if="phase.card.accentCard"
-                    class="rounded-xl px-5 py-4"
-                    style="background: rgba(42,157,143,0.08); border: 1px solid rgba(42,157,143,0.2)"
-                  >
-                    <div class="text-base font-bold mb-2" style="color: #2A9D8F">{{ phase.card.accentCard.title }}</div>
-                    <p class="text-sm text-gray-600 leading-relaxed">{{ phase.card.accentCard.body }}</p>
-                  </div>
+          <!-- Sub 1: Token 架構建立 -->
+          <div class="flex flex-col gap-4" style="margin-bottom: 120px">
+            <div class="flex items-center gap-4">
+              <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+              <h4 class="font-bold text-navy" style="font-size: 20px">Token 架構建立</h4>
+            </div>
+            <p class="text-gray-600 leading-loose" style="font-size: 16px">以 Token Studio for Figma（TSF）建立三層分離架構：</p>
+            <div class="flex flex-col sm:flex-row items-center gap-0" style="margin-top: 56px">
+              <!-- Core -->
+              <div class="flex-1 flex flex-col items-center">
+                <img src="/images/work1/core.png" alt="Core" class="h-auto object-contain" style="max-width: 280px; width: 100%" />
+                <div class="text-center" style="margin-top: 24px">
+                  <div style="font-size: 20px; font-weight: bold; color: #2A9D8F; margin-bottom: 4px">Core</div>
+                  <div style="font-size: 16px" class="text-gray-500 leading-relaxed">所有原始數值（色票、間距、字體等）</div>
                 </div>
               </div>
-
+              <!-- Arrow -->
+              <div class="flex items-center justify-center px-3 py-4 sm:py-0 flex-shrink-0 self-center" style="color: #2A9D8F">
+                <svg class="hidden sm:block w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <svg class="sm:hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </div>
+              <!-- Semantic -->
+              <div class="flex-1 flex flex-col items-center">
+                <img src="/images/work1/semantic.png" alt="Semantic" class="h-auto object-contain" style="max-width: 280px; width: 100%" />
+                <div class="text-center" style="margin-top: 24px">
+                  <div style="font-size: 20px; font-weight: bold; color: #2A9D8F; margin-bottom: 4px">Semantic</div>
+                  <div style="font-size: 16px" class="text-gray-500 leading-relaxed">定義用途，數值引用 core token</div>
+                </div>
+              </div>
+              <!-- Arrow -->
+              <div class="flex items-center justify-center px-3 py-4 sm:py-0 flex-shrink-0 self-center" style="color: #2A9D8F">
+                <svg class="hidden sm:block w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                <svg class="sm:hidden w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+              </div>
+              <!-- Component -->
+              <div class="flex-1 flex flex-col items-center">
+                <img src="/images/work1/component.png" alt="Component" class="h-auto object-contain" style="max-width: 280px; width: 100%" />
+                <div class="text-center" style="margin-top: 24px">
+                  <div style="font-size: 20px; font-weight: bold; color: #2A9D8F; margin-bottom: 4px">Component</div>
+                  <div style="font-size: 16px" class="text-gray-500 leading-relaxed">元件層，引用 semantic</div>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- Sub 2: Figma 結構設定 -->
+          <div class="flex flex-col gap-4" style="margin-bottom: 120px">
+            <div class="flex items-center gap-4">
+              <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+              <h4 class="font-bold text-navy" style="font-size: 20px">Figma 結構設定</h4>
+            </div>
+            <div class="flex flex-col md:flex-row items-start justify-between" style="gap: 48px">
+              <div class="flex flex-col gap-6" style="max-width: 380px">
+                <p class="text-gray-600 leading-loose" style="font-size: 16px">在 Figma 裡進行元件的命名、frame 的結構、auto layout 的設定。設計師在此階段進行視覺數據化，作為 AI 讀取設計意圖的依據。</p>
+                <div class="rounded-xl p-4" style="background: rgba(42,157,143,0.08)">
+                  <p class="text-sm text-gray-600 leading-loose">設計師的設定決策，直接影響 AI 的執行品質。</p>
+                </div>
+              </div>
+              <div class="rounded-xl overflow-hidden w-full md:flex-shrink-0 md:w-1/2 md:max-w-[480px] mx-auto">
+                <img src="/images/work1/token-structure.png" alt="Figma 結構設定" class="w-full h-auto object-cover" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Sub 3: AI 協作 -->
+          <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-4">
+              <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+              <h4 class="font-bold text-navy" style="font-size: 20px">AI 協作——從設計到程式碼</h4>
+            </div>
+            <p class="text-gray-600 leading-loose" style="font-size: 16px">透過 Figma MCP，讓 Claude Code 直接讀取 Figma 上的設計資料，加上部分文字說明為輔助，進行視覺 UI 開發。</p>
+            <div class="flex justify-center" style="margin-top: 48px">
+              <img src="/images/work1/mcp.png" alt="AI 協作——從設計到程式碼" class="rounded-xl object-cover" style="max-width: 640px; width: 100%" />
+            </div>
+          </div>
+
         </div>
-      </section>
-    </template>
+
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────
+         4-2. 過程 02
+    ───────────────────────────────────────────── -->
+    <section class="py-[84px]">
+      <div class="max-w-6xl mx-auto px-6">
+
+        <!-- Header: centered -->
+        <div v-reveal class="text-center mb-16">
+          <div class="text-6xl font-black mb-3 leading-none" style="color: rgba(42,157,143,0.22)">02</div>
+          <h3 class="text-xl font-bold text-navy mb-2">前端設計系統自動化與品質控管</h3>
+          <p class="text-gray-600" style="font-size: 16px">自動化更新，確保規則被確實執行</p>
+        </div>
+
+        <!-- Two columns -->
+        <div v-reveal class="flex flex-col md:flex-row gap-20 items-center">
+
+          <!-- Left: three cards -->
+          <div class="flex flex-col gap-6" style="max-width: 560px">
+
+            <!-- Card 1 -->
+            <div class="rounded-xl p-6" style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.04)">
+              <div class="flex items-center gap-4 mb-3">
+                <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+                <h4 class="font-bold text-navy" style="font-size: 20px">技術基礎</h4>
+              </div>
+              <p class="text-gray-600 leading-loose" style="font-size: 16px">TSF 輸出 tokens.json → generate-config.js 自動生成 token.css 和 tailwind.config.cjs</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="rounded-xl p-6" style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.04)">
+              <div class="flex items-center gap-4 mb-3">
+                <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+                <h4 class="font-bold text-navy" style="font-size: 20px">隨時更新</h4>
+              </div>
+              <p class="text-gray-600 leading-loose" style="font-size: 16px">設計端任何 token 變動，重新提交 tokens.json 並啟動腳本，前端視覺即時同步更新——無需工程師手動對照調整。</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="rounded-xl p-6" style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.04)">
+              <div class="flex items-center gap-4 mb-3">
+                <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+                <h4 class="font-bold text-navy" style="font-size: 20px">Hardcode 數值掃描</h4>
+              </div>
+              <p class="text-gray-600 leading-loose" style="font-size: 16px">建立自動掃描機制腳本，確認元件正確引用 token 而非直接寫死數值——確保設計系統的規則真正被執行，而不只是存在於文件裡。</p>
+            </div>
+
+          </div>
+
+          <!-- Right: image -->
+          <div class="flex justify-center w-full md:flex-shrink-0 md:justify-end md:w-[40%] md:max-w-[380px] md:self-center">
+            <img src="/images/work1/flow.png" alt="前端設計系統自動化流程" class="w-full h-auto" />
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─────────────────────────────────────────────
+         4-3. 過程 03
+    ───────────────────────────────────────────── -->
+    <section class="py-[84px]" style="background: #f9fafb">
+      <div class="max-w-6xl mx-auto px-6">
+
+        <div v-reveal class="flex flex-col md:flex-row gap-24 items-start">
+
+          <!-- Left: header + image -->
+          <div class="flex-1 flex flex-col gap-10">
+            <div>
+              <div class="text-6xl font-black mb-3 leading-none" style="color: rgba(42,157,143,0.22)">03</div>
+              <h3 class="text-xl font-bold text-navy mb-2">兩層交付</h3>
+              <p class="text-gray-600" style="font-size: 16px">落實 DesignOps——Machine-readable 與 Human-readable 的雙重設計</p>
+            </div>
+            <img src="/images/work1/mh-readable.png" alt="兩層交付" class="h-auto" style="max-width: 100%" />
+          </div>
+
+          <!-- Right: two cards -->
+          <div class="flex-1 flex flex-col gap-6">
+
+            <!-- Card 1 -->
+            <div class="rounded-xl p-6" style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.04)">
+              <div class="flex items-center gap-4 mb-3">
+                <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+                <h4 class="font-bold text-navy" style="font-size: 16px">Machine-readable</h4>
+              </div>
+              <p class="text-gray-600 leading-loose" style="font-size: 14px">以 tokens.json 結構化設計規則，讓程式與 AI 開發工具直接調用，實現自動化同步。</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="rounded-xl p-6" style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.04)">
+              <div class="flex items-center gap-4 mb-3">
+                <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+                <h4 class="font-bold text-navy" style="font-size: 16px">Human-readable</h4>
+              </div>
+              <p class="text-gray-600 leading-loose" style="font-size: 14px">提供具備脈絡的指引文件，作為設計師、工程師與 AI 在決策協作時的邏輯依據。</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
 
     <!-- ─────────────────────────────────────────────
          5. 成果與反思 — Outcomes Section
     ───────────────────────────────────────────── -->
     <template v-for="(section, idx) in project.sections" :key="'outcome-' + idx">
-      <section v-if="section.outcomes" class="py-16" :style="section.bg ? `background: ${section.bg}` : ''">
+      <section v-if="section.outcomes" class="py-[84px]" :style="section.bg ? `background: ${section.bg}` : ''">
         <div class="max-w-6xl mx-auto px-6">
           <div v-reveal class="text-center mb-12">
             <h2 class="text-2xl font-bold text-navy mb-2">{{ section.title }}</h2>
@@ -350,7 +436,7 @@
     <!-- ─────────────────────────────────────────────
          Navigation — prev / next
     ───────────────────────────────────────────── -->
-    <section class="max-w-6xl mx-auto px-6 py-16">
+    <section class="max-w-6xl mx-auto px-6 py-[84px]">
       <div class="flex justify-between items-center gap-4 flex-wrap">
         <NuxtLink to="/works" class="flex items-center gap-2 text-sm text-gray-400 hover:text-navy transition-colors font-medium">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -392,7 +478,7 @@
 // ── Project data ─────────────────────────────────────────────────────────
 // Replace placeholder content below with actual project details.
 const project = {
-  title: '設計系統新工作流 - 建立設計師、工程師與 AI 的共同語言',
+  title: '建立設計與開發的共同語言',
   brandName: 'DesignOps System',
 
   meta: [
@@ -461,90 +547,6 @@ const project = {
       ],
     },
 
-    // ── 4. 過程 ──────────────────────────────────────────────────────────
-    {
-      label: '設計過程',
-      hideLabel: true,
-      bg: '#f9fafb',
-      title: '過程',
-      phases: [
-        // ── 01 視覺數據化 ──────────────────────────────────────────────
-        {
-          title: '視覺數據化',
-          sideBody: '讓 AI 讀懂設計決策',
-          card: {
-            sections: [
-              {
-                title: 'Token 架構建立',
-                body: '以 Token Studio for Figma（TSF）建立三層分離架構：',
-                layers: [
-                  { name: 'Core', desc: '所有原始數值（色票、間距、字體等）' },
-                  { name: 'Semantic', desc: '定義用途，數值引用 core token' },
-                  { name: 'Component', desc: '元件層，引用 semantic' },
-                ],
-              },
-              {
-                title: 'Figma 結構設定',
-                body: '在 Figma 裡進行元件的命名、frame 的結構、auto layout 的設定。設計師在此階段進行視覺數據化，作為 AI 讀取設計意圖的依據。',
-                innerCard: {
-                  bg: '#F9FAFB',
-                  border: '#E4E7EC',
-                  body: '設計師的設定決策，直接影響 AI 的執行品質。',
-                },
-              },
-              {
-                title: 'AI 協作——從設計到程式碼',
-                body: '透過 Figma MCP，讓 Claude Code 直接讀取 Figma 上的設計資料，加上部分文字說明為輔助，進行視覺 UI 開發。',
-              },
-            ],
-            accentCard: {
-              title: '複用邏輯',
-              body: '換品牌只改 core，換主題只改 dark/light 對應關係，元件層完全不動。',
-            },
-          },
-        },
-        // ── 02 前端設計系統自動化與品質控管 ───────────────────────────
-        {
-          title: '前端設計系統自動化與品質控管',
-          sideBody: '自動化更新，確保規則被確實執行',
-          mirror: true,
-          card: {
-            sections: [
-              {
-                title: '技術基礎',
-                body: 'TSF 輸出 tokens.json → generate-config.js 自動生成 token.css 和 tailwind.config.cjs',
-              },
-              {
-                title: '隨時更新',
-                body: '設計端任何 token 變動，重新提交 tokens.json 並啟動腳本，前端視覺即時同步更新——無需工程師手動對照調整。',
-              },
-              {
-                title: 'Hardcode 數值掃描',
-                body: '建立自動掃描機制，確認元件正確引用 token 而非直接寫死數值——確保設計系統的規則真正被執行，而不只是存在於文件裡。',
-              },
-            ],
-          },
-        },
-        // ── 03 兩層交付 ────────────────────────────────────────────────
-        {
-          title: '兩層交付',
-          sideBody: '落實 DesignOps——Machine-readable 與 Human-readable 的雙重設計',
-          card: {
-            sections: [
-              {
-                title: 'Machine-readable',
-                body: '以 tokens.json 結構化設計規則，讓程式與 AI 開發工具直接調用，實現自動化同步。',
-              },
-              {
-                title: 'Human-readable',
-                body: '提供具備脈絡的指引文件，作為設計師、工程師與 AI 在決策協作時的邏輯依據。',
-              },
-            ],
-          },
-        },
-      ],
-    },
-
     // ── 5. 成果與反思 ─────────────────────────────────────────────────
     {
       label: '成果與反思',
@@ -565,6 +567,10 @@ const project = {
             {
               title: '視覺數據化奠定 AI 協作的基礎',
               body: '這套架構讓設計意圖可以被 AI 正確讀取並執行，成為後續產品開發的可擴充基礎。',
+            },
+            {
+              title: '複用邏輯',
+              body: '換品牌只改 core，換主題只改 dark/light 對應關係，元件層完全不動。',
             },
           ],
         },
