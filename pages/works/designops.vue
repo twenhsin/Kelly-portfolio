@@ -195,19 +195,20 @@
         <div v-reveal class="flex flex-col">
 
           <!-- Header: number + title + subtitle -->
-          <div style="margin-bottom: 80px">
+          <div class="text-left md:text-left text-center" style="margin-bottom: 80px">
             <div class="text-6xl font-black mb-2 leading-none" style="color: rgba(42,157,143,0.22)">01</div>
             <h3 class="text-xl font-bold text-navy mb-2">視覺數據化</h3>
             <p class="text-sm text-gray-600 leading-loose">讓 AI 讀懂設計決策</p>
           </div>
 
           <!-- Sub 1: Token 架構建立 -->
+          <!-- Sub 1: Token 架構建立 -->
           <div class="flex flex-col gap-4" style="margin-bottom: 120px">
-            <div class="flex items-center gap-4">
-              <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+            <div class="flex items-center justify-center gap-4">
+              <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
               <h4 class="font-bold text-navy" style="font-size: 20px">Token 架構建立</h4>
             </div>
-            <p class="text-gray-600 leading-loose" style="font-size: 16px">以 Token Studio for Figma（TSF）建立三層分離架構：</p>
+            <p class="text-gray-600 leading-loose text-center" style="font-size: 16px">以 Token Studio for Figma（TSF）建立三層分離架構：</p>
             <div class="flex flex-col sm:flex-row items-center gap-0" style="margin-top: 56px">
               <!-- Core -->
               <div class="flex-1 flex flex-col items-center">
@@ -249,7 +250,7 @@
           <!-- Sub 2: Figma 結構設定 -->
           <div class="flex flex-col gap-4" style="margin-bottom: 120px">
             <div class="flex items-center gap-4">
-              <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+              <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
               <h4 class="font-bold text-navy" style="font-size: 20px">Figma 結構設定</h4>
             </div>
             <div class="flex flex-col md:flex-row items-start justify-between" style="gap: 48px">
@@ -268,7 +269,7 @@
           <!-- Sub 3: AI 協作 -->
           <div class="flex flex-col gap-4">
             <div class="flex items-center gap-4">
-              <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+              <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
               <h4 class="font-bold text-navy" style="font-size: 20px">AI 協作——從設計到程式碼</h4>
             </div>
             <p class="text-gray-600 leading-loose" style="font-size: 16px">透過 Figma MCP，讓 Claude Code 直接讀取 Figma 上的設計資料，加上部分文字說明為輔助，進行視覺 UI 開發。</p>
@@ -304,7 +305,7 @@
             <!-- Card 1 -->
             <div class="rounded-xl p-6" style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.04)">
               <div class="flex items-center gap-4 mb-3">
-                <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+                <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
                 <h4 class="font-bold text-navy" style="font-size: 20px">技術基礎</h4>
               </div>
               <p class="text-gray-600 leading-loose" style="font-size: 16px">TSF 輸出 tokens.json → generate-config.js 自動生成 token.css 和 tailwind.config.cjs</p>
@@ -313,7 +314,7 @@
             <!-- Card 2 -->
             <div class="rounded-xl p-6" style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.04)">
               <div class="flex items-center gap-4 mb-3">
-                <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+                <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
                 <h4 class="font-bold text-navy" style="font-size: 20px">隨時更新</h4>
               </div>
               <p class="text-gray-600 leading-loose" style="font-size: 16px">設計端任何 token 變動，重新提交 tokens.json 並啟動腳本，前端視覺即時同步更新——無需工程師手動對照調整。</p>
@@ -322,7 +323,7 @@
             <!-- Card 3 -->
             <div class="rounded-xl p-6" style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.04)">
               <div class="flex items-center gap-4 mb-3">
-                <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+                <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
                 <h4 class="font-bold text-navy" style="font-size: 20px">Hardcode 數值掃描</h4>
               </div>
               <p class="text-gray-600 leading-loose" style="font-size: 16px">建立自動掃描機制腳本，確認元件正確引用 token 而非直接寫死數值——確保設計系統的規則真正被執行，而不只是存在於文件裡。</p>
@@ -364,7 +365,7 @@
             <!-- Card 1 -->
             <div class="rounded-xl p-6" style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.04)">
               <div class="flex items-center gap-4 mb-3">
-                <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+                <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
                 <h4 class="font-bold text-navy" style="font-size: 16px">Machine-readable</h4>
               </div>
               <p class="text-gray-600 leading-loose" style="font-size: 14px">以 tokens.json 結構化設計規則，讓程式與 AI 開發工具直接調用，實現自動化同步。</p>
@@ -373,7 +374,7 @@
             <!-- Card 2 -->
             <div class="rounded-xl p-6" style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.04)">
               <div class="flex items-center gap-4 mb-3">
-                <div class="flex-shrink-0" style="background: #2A9D8F; height: 32px; width: 6px" />
+                <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
                 <h4 class="font-bold text-navy" style="font-size: 16px">Human-readable</h4>
               </div>
               <p class="text-gray-600 leading-loose" style="font-size: 14px">提供具備脈絡的指引文件，作為設計師、工程師與 AI 在決策協作時的邏輯依據。</p>
@@ -400,7 +401,7 @@
           <!-- Top: 最終結果 -->
           <div v-reveal="{ delay: 100 }" class="rounded-2xl p-8 mb-6" style="background: #fff; border: 1px solid rgba(0,0,0,0.06)">
             <div class="flex items-center gap-2 mb-6">
-              <div class="w-1 h-5 rounded-full" style="background: #2A9D8F" />
+              <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
               <h3 class="text-base font-bold text-navy">{{ section.outcomes.left.title }}</h3>
             </div>
             <div class="grid sm:grid-cols-2 gap-5">
@@ -419,7 +420,7 @@
           <!-- Bottom: 反思 (teal accent card) -->
           <div v-reveal="{ delay: 150 }" class="rounded-2xl p-8" style="background: #2A9D8F">
             <div class="flex items-center gap-2 mb-6">
-              <div class="w-1 h-4 rounded-full" style="background: rgba(255,255,255,0.5)" />
+              <div class="flex-shrink-0" style="background: rgba(255,255,255,0.5); height: 20px; width: 4px" />
               <span class="text-sm md:text-base font-semibold" style="color: rgba(255,255,255,0.7)">{{ section.outcomes.right.title }}</span>
             </div>
             <div class="text-8xl font-black leading-none mb-2 select-none" style="color: rgba(255,255,255,0.25); font-family: Georgia, serif; line-height: 0.8">"</div>

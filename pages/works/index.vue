@@ -23,11 +23,9 @@
 
     <!-- ── Work cards ─────────────────────────────────── -->
     <section class="max-w-6xl mx-auto px-6 pb-28">
-
-      <!-- Row 1: two cards side by side -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <NuxtLink
-          v-for="(work, idx) in works.slice(0, 2)"
+          v-for="(work, idx) in works"
           :key="work.to"
           :to="work.to"
           v-reveal="{ delay: idx * 100 }"
@@ -64,43 +62,6 @@
           </div>
         </NuxtLink>
       </div>
-
-      <!-- Row 2: third card, left-aligned, same width as one column above -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <NuxtLink
-          :to="works[2].to"
-          v-reveal="{ delay: 200 }"
-          class="work-card group flex flex-col rounded-2xl overflow-hidden"
-          style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.05); transition: box-shadow 0.3s, transform 0.3s"
-        >
-          <!-- Cover image -->
-          <div class="w-full overflow-hidden" style="min-height: 240px;">
-            <img src="/images/Hero3.png" alt="Cohealing" class="w-full h-full object-cover" style="min-height: 240px;" />
-          </div>
-
-          <!-- Text area -->
-          <div class="flex flex-col px-6 py-7 flex-1">
-            <span class="text-xs font-semibold tracking-widest uppercase mb-3" style="color: #2A9D8F">{{ works[2].type }}</span>
-            <h2 class="text-xl font-bold text-navy group-hover:text-teal transition-colors mb-2" style="line-height: 1.4">{{ works[2].title }}</h2>
-            <p class="text-sm text-gray-500 leading-loose mb-5">{{ works[2].description }}</p>
-            <div class="flex gap-2 flex-wrap mb-5">
-              <span
-                v-for="tag in works[2].tags"
-                :key="tag"
-                class="text-xs font-medium px-2.5 py-1 rounded-full"
-                style="background: #F3F5F7; color: #6E7987"
-              >{{ tag }}</span>
-            </div>
-            <span class="inline-flex items-center gap-1.5 text-sm font-medium mt-auto" style="color: #2A9D8F">
-              查看案例
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </span>
-          </div>
-        </NuxtLink>
-      </div>
-
     </section>
 
   </div>
@@ -110,19 +71,19 @@
 const works = [
   {
     to: '/works/designops',
-    type: '設計系統 / DesignOps',
+    type: 'DesignOps / 規格同步',
     title: 'DesignOps System',
-    description: '以 Figma MCP + Claude Code 為核心，建立讓 AI 可以正確讀取並執行的設計系統基礎建設。',
-    tags: ['設計系統', '視覺數據化', 'DesignOps', 'AI 協作'],
+    description: '消除設計與開發端的規格斷層，透過自動化同步讓設計規格與開發環境保持一致。',
+    tags: ['視覺數據化', 'Design Tokens', 'Design-to-Code', 'Single Source of Truth'],
     gradient: 'linear-gradient(135deg, #1B2A4A 0%, #2A9D8F 100%)',
     cover: '/images/work1/hero.png',
   },
   {
     to: '/works/filo',
-    type: 'AI-native 產品 / Generative UI',
+    type: 'AI-NATIVE 產品 / Code-to-Design 工作流',
     title: 'Filo',
-    description: '從產品概念到部署上線，完整實踐 AI 協作的開發流程——透過 AI 互動讓介面根據使用者行為動態回應（Generative UI）。',
-    tags: ['AI 協作', '產品設計', '全端開發', 'AI Workflow'],
+    description: '打造內建 Generative UI 的 AI-native 產品，建立 Code-to-Design 雙向同步工作流，實現代碼即設計，同步完成高保真原型驗證。',
+    tags: ['Generative UI', '快速原型', 'AI Workflow', '雙向同步'],
     gradient: 'linear-gradient(135deg, #2A4A6B 0%, #2A9D8F 100%)',
     cover: '',
   },
@@ -130,9 +91,10 @@ const works = [
     to: '/works/cohealing',
     type: '產品策略 / 0-to-1',
     title: 'Cohealing',
-    description: '從品牌定位到產品規劃，一個真實創業場景的完整策略決策過程。',
-    tags: ['產品策略', '0-to-1', '品牌定位', 'UIUX 設計'],
+    description: '從品牌定位到產品規劃，完成 0-to-1 的完整設計交付。',
+    tags: ['產品策略', '品牌定位', '0-to-1', 'UIUX 設計'],
     gradient: 'linear-gradient(135deg, #1B2A4A 0%, #3D6B8F 100%)',
+    cover: '/images/Hero3.png',
   },
 ]
 </script>
