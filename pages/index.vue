@@ -127,6 +127,7 @@
           title="DesignOps System"
           description="消除設計與開發端的規格斷層，透過自動化同步讓設計規格與開發環境保持一致。"
           :tags="['視覺數據化', 'Design Tokens', 'Design-to-Code', 'Single Source of Truth']"
+          image="/images/work1/hero.png"
           gradient="linear-gradient(135deg, #c9a27e, #b5845a)"
         />
         <ProjectCard

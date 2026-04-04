@@ -306,7 +306,7 @@
             <div class="rounded-xl p-6" style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.04)">
               <div class="flex items-center gap-4 mb-3">
                 <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
-                <h4 class="font-bold text-navy" style="font-size: 20px">技術基礎</h4>
+                <h4 class="font-bold text-navy" style="font-size: 16px">技術基礎</h4>
               </div>
               <p class="text-gray-600 leading-loose" style="font-size: 16px">TSF 輸出 tokens.json → generate-config.js 自動生成 token.css 和 tailwind.config.cjs</p>
             </div>
@@ -315,7 +315,7 @@
             <div class="rounded-xl p-6" style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.04)">
               <div class="flex items-center gap-4 mb-3">
                 <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
-                <h4 class="font-bold text-navy" style="font-size: 20px">隨時更新</h4>
+                <h4 class="font-bold text-navy" style="font-size: 16px">隨時更新</h4>
               </div>
               <p class="text-gray-600 leading-loose" style="font-size: 16px">設計端任何 token 變動，重新提交 tokens.json 並啟動腳本，前端視覺即時同步更新——無需工程師手動對照調整。</p>
             </div>
@@ -324,7 +324,7 @@
             <div class="rounded-xl p-6" style="border: 1px solid rgba(0,0,0,0.07); background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.04)">
               <div class="flex items-center gap-4 mb-3">
                 <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
-                <h4 class="font-bold text-navy" style="font-size: 20px">Hardcode 數值掃描</h4>
+                <h4 class="font-bold text-navy" style="font-size: 16px">Hardcode 數值掃描</h4>
               </div>
               <p class="text-gray-600 leading-loose" style="font-size: 16px">建立自動掃描機制腳本，確認元件正確引用 token 而非直接寫死數值——確保設計系統的規則真正被執行，而不只是存在於文件裡。</p>
             </div>
