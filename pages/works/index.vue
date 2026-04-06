@@ -22,7 +22,7 @@
     </section>
 
     <!-- ── Work cards ─────────────────────────────────── -->
-    <section class="max-w-6xl mx-auto px-6 pb-28">
+    <section class="max-w-6xl mx-auto px-6 pb-12">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <NuxtLink
           v-for="(work, idx) in works"
@@ -64,6 +64,62 @@
       </div>
     </section>
 
+    <!-- 其他作品 -->
+    <section class="max-w-6xl mx-auto px-6 pb-28">
+      <div class="mt-8">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-1 h-5 rounded-full bg-teal" />
+          <h2 class="text-xl font-semibold text-navy">其他作品</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <a href="https://www.behance.net/gallery/94549303/Webapp" target="_blank" rel="noopener" class="group block overflow-hidden rounded-2xl border border-gray-100 hover:shadow-md transition-shadow">
+            <div class="overflow-hidden">
+              <img src="/images/more/behance1.png" alt="mycoach 運動管理平台優化" class="w-full h-auto group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="p-4">
+              <p class="text-xs text-teal font-semibold tracking-widest uppercase mb-1">Webapp</p>
+              <p class="text-base font-semibold text-navy">mycoach 運動管理平台優化</p>
+            </div>
+          </a>
+
+          <a href="https://www.behance.net/gallery/93882131/_" target="_blank" rel="noopener" class="group block overflow-hidden rounded-2xl border border-gray-100 hover:shadow-md transition-shadow">
+            <div class="overflow-hidden">
+              <img src="/images/more/behance2.png" alt="mycoach 運動管理平台" class="w-full h-auto group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="p-4">
+              <p class="text-xs text-teal font-semibold tracking-widest uppercase mb-1">Mobile App</p>
+              <p class="text-base font-semibold text-navy">mycoach 運動管理平台</p>
+            </div>
+          </a>
+
+          <a href="https://www.behance.net/gallery/56436903/CO-WORKING-SPACE" target="_blank" rel="noopener" class="group block overflow-hidden rounded-2xl border border-gray-100 hover:shadow-md transition-shadow">
+            <div class="overflow-hidden">
+              <img src="/images/more/behance3.png" alt="創谷 共享辦公室" class="w-full h-auto group-hover:scale-105 transition-transform duration-300" />
+            </div>
+            <div class="p-4">
+              <p class="text-xs text-teal font-semibold tracking-widest uppercase mb-1">Mobile App</p>
+              <p class="text-base font-semibold text-navy">創谷 共享辦公室</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="mt-10 text-center">
+          <a
+            href="https://www.behance.net/wenhsin600cc8c"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-teal text-white font-medium transition-colors duration-200 hover:bg-[#1E7B6E]"
+          >
+            Behance
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </div>
 </template>
 
@@ -85,7 +141,7 @@ const works = [
     description: '打造內建 Generative UI 的 AI-native 產品，建立 Code-to-Design 雙向同步工作流，實現代碼即設計，同步完成高保真原型驗證。',
     tags: ['Generative UI', '快速原型', 'AI Workflow', '雙向同步'],
     gradient: 'linear-gradient(135deg, #2A4A6B 0%, #2A9D8F 100%)',
-    cover: '',
+    cover: '/images/work2/cover.png',
   },
   {
     to: '/works/cohealing',

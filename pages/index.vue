@@ -138,6 +138,7 @@
           description="打造內建 Generative UI 的 AI-native 產品，建立 Code-to-Design 雙向同步工作流，實現代碼即設計，同步完成高保真原型驗證。"
           :tags="['Generative UI', '快速原型', 'AI Workflow', '雙向同步']"
           gradient="linear-gradient(135deg, #f4a97f, #e8856a)"
+          image="/images/work2/cover.png"
           :reverse="true"
         />
         <ProjectCard
@@ -155,43 +156,12 @@
       <!-- Bottom CTA -->
       <div class="flex justify-center mt-32">
         <div class="group/cta inline-flex flex-col items-center">
-          <!-- Wide oval blinking face, bottom half hidden behind button -->
-          <div class="w-32 -mb-[15px] z-0 opacity-0 translate-y-4 group-hover/cta:opacity-100 group-hover/cta:translate-y-0 transition-all duration-300 ease-out pointer-events-none">
-            <svg viewBox="0 0 88 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Cat ears (behind face) -->
-              <path d="M 14,22 L 17,10 Q 19,5 22,10 L 27,22 Z" fill="#DCAF79" stroke="#814F2B" stroke-width="0.8" stroke-linejoin="round" stroke-linecap="round" />
-              <path d="M 61,22 L 66,10 Q 69,5 72,10 L 74,22 Z" fill="#DCAF79" stroke="#814F2B" stroke-width="0.8" stroke-linejoin="round" stroke-linecap="round" />
-              <!-- Face oval (covers ear bases) -->
-              <ellipse cx="44" cy="50" rx="43" ry="40" fill="#DCAF79" stroke="#814F2B" stroke-width="0.8" />
-              <!-- Eyes -->
-              <ellipse class="blink-eye" cx="30" cy="23" rx="2.4" ry="3.2" fill="#5F5148" />
-              <ellipse class="blink-eye" cx="58" cy="23" rx="2.4" ry="3.2" fill="#5F5148" />
-              <!-- Whiskers left -->
-              <line x1="8" y1="27" x2="37" y2="27" stroke="#814F2B" stroke-width="0.8" stroke-linecap="round" />
-              <line x1="8" y1="30" x2="37" y2="30" stroke="#814F2B" stroke-width="0.8" stroke-linecap="round" />
-              <line x1="8" y1="33" x2="37" y2="33" stroke="#814F2B" stroke-width="0.8" stroke-linecap="round" />
-              <!-- Whiskers right -->
-              <line x1="51" y1="27" x2="80" y2="27" stroke="#814F2B" stroke-width="0.8" stroke-linecap="round" />
-              <line x1="51" y1="30" x2="80" y2="30" stroke="#814F2B" stroke-width="0.8" stroke-linecap="round" />
-              <line x1="51" y1="33" x2="80" y2="33" stroke="#814F2B" stroke-width="0.8" stroke-linecap="round" />
-              <!-- Nose -->
-              <polygon points="42,28 46,28 44,31" fill="#5F5148" />
-              <!-- Cat mouth: philtrum + two curves -->
-              <path d="M44,31 L44,34 M44,34 Q40,39 38,37 M44,34 Q48,39 50,37" stroke="#5F5148" stroke-width="1.2" stroke-linecap="round" fill="none" />
-            </svg>
-          </div>
-
           <NuxtLink
             to="/works"
             class="relative z-10 px-8 py-3 rounded-lg bg-teal text-white font-medium transition-colors duration-200 hover:bg-[#1E7B6E]"
           >
             查看所有作品
           </NuxtLink>
-
-          <!-- Cat tail -->
-          <div class="opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300 pointer-events-none -mt-2">
-            <img class="wag-tail block" src="/images/tail.svg" alt="" width="41" height="60" />
-          </div>
         </div>
       </div>
     </section>

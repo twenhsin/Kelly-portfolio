@@ -58,11 +58,16 @@
         <div v-reveal="{ delay: 150 }" class="flex-1 min-w-0 w-full">
           <div
             class="w-full rounded-2xl overflow-hidden"
-            style="background: #0F1117; min-height: 400px; display: flex; align-items: center; justify-content: center;"
+            style="background: #0F1117; min-height: 400px; height: 490px; position: relative;"
           >
-            <!-- Replace with actual screenshot -->
-            <!-- <img src="/images/works/work-2-hero.png" alt="Filo app screenshot" class="w-full object-cover" /> -->
-            <span class="text-gray-600 text-sm">Product Screenshot</span>
+            <video
+              src="/images/work2/hero_crop.mp4"
+              autoplay
+              loop
+              muted
+              playsinline
+              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;"
+            />
           </div>
         </div>
 
