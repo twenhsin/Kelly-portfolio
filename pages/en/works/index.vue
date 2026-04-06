@@ -13,10 +13,10 @@
           </svg>
           Works
         </span>
-        <h1 class="text-4xl md:text-5xl font-bold text-navy mb-2" style="line-height: 1.3">設計專案</h1>
+        <h1 class="text-4xl md:text-5xl font-bold text-navy mb-2" style="line-height: 1.3">Works</h1>
         <div class="w-8 h-1 bg-teal rounded-full mb-4" />
         <p class="text-sm text-gray-500 leading-loose max-w-lg">
-          三件代表性專案，記錄從問題定義到最終設計的完整思考過程。
+          Three representative projects documenting the complete thinking process from problem definition to final design.
         </p>
       </div>
     </section>
@@ -54,7 +54,7 @@
               >{{ tag }}</span>
             </div>
             <span class="inline-flex items-center gap-1.5 text-sm font-medium mt-auto" style="color: #2A9D8F">
-              查看案例
+              View Case
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
               </svg>
@@ -64,42 +64,42 @@
       </div>
     </section>
 
-    <!-- 其他作品 -->
+    <!-- More Works -->
     <section class="max-w-6xl mx-auto px-6 pb-28">
       <div class="mt-8">
         <div class="flex items-center gap-3 mb-8">
           <div class="w-1 h-5 rounded-full bg-teal" />
-          <h2 class="text-xl font-semibold text-navy">其他作品</h2>
+          <h2 class="text-xl font-semibold text-navy">More Works</h2>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <a href="https://www.behance.net/gallery/94549303/Webapp" target="_blank" rel="noopener" class="group block overflow-hidden rounded-2xl border border-gray-100 hover:shadow-md transition-shadow">
             <div class="overflow-hidden">
-              <img src="/images/more/behance1.png" alt="mycoach 運動管理平台（衝浪）" class="w-full h-auto group-hover:scale-105 transition-transform duration-300" />
+              <img src="/images/more/behance1.png" alt="mycoach Sports Management Platform (Surfing)" class="w-full h-auto group-hover:scale-105 transition-transform duration-300" />
             </div>
             <div class="p-4">
               <p class="text-xs text-teal font-semibold tracking-widest uppercase mb-1">Webapp</p>
-              <p class="text-base font-semibold text-navy">mycoach 運動管理平台（衝浪）</p>
+              <p class="text-base font-semibold text-navy">mycoach Sports Management Platform (Surfing)</p>
             </div>
           </a>
 
           <a href="https://www.behance.net/gallery/93882131/_" target="_blank" rel="noopener" class="group block overflow-hidden rounded-2xl border border-gray-100 hover:shadow-md transition-shadow">
             <div class="overflow-hidden">
-              <img src="/images/more/behance2.png" alt="mycoach 運動管理平台（足球）" class="w-full h-auto group-hover:scale-105 transition-transform duration-300" />
+              <img src="/images/more/behance2.png" alt="mycoach Sports Management Platform (Football)" class="w-full h-auto group-hover:scale-105 transition-transform duration-300" />
             </div>
             <div class="p-4">
               <p class="text-xs text-teal font-semibold tracking-widest uppercase mb-1">Mobile App</p>
-              <p class="text-base font-semibold text-navy">mycoach 運動管理平台（足球）</p>
+              <p class="text-base font-semibold text-navy">mycoach Sports Management Platform (Football)</p>
             </div>
           </a>
 
           <a href="https://www.behance.net/gallery/56436903/CO-WORKING-SPACE" target="_blank" rel="noopener" class="group block overflow-hidden rounded-2xl border border-gray-100 hover:shadow-md transition-shadow">
             <div class="overflow-hidden">
-              <img src="/images/more/behance3.png" alt="創谷 共享辦公室" class="w-full h-auto group-hover:scale-105 transition-transform duration-300" />
+              <img src="/images/more/behance3.png" alt="Chuang Gu Co-working Space" class="w-full h-auto group-hover:scale-105 transition-transform duration-300" />
             </div>
             <div class="p-4">
               <p class="text-xs text-teal font-semibold tracking-widest uppercase mb-1">Mobile App</p>
-              <p class="text-base font-semibold text-navy">創谷 共享辦公室</p>
+              <p class="text-base font-semibold text-navy">Chuang Gu Co-working Space</p>
             </div>
           </a>
         </div>
@@ -111,7 +111,7 @@
             rel="noopener"
             class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-teal text-white font-medium transition-colors duration-200 hover:bg-[#1E7B6E]"
           >
-            Behance
+            More on Behance
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
@@ -127,28 +127,28 @@
 const works = [
   {
     to: '/works/designops',
-    type: 'DesignOps / 規格同步',
+    type: 'Automated Architecture / DesignOps',
     title: 'DesignOps System',
-    description: '消除設計與開發端的規格斷層，透過自動化同步讓設計規格與開發環境保持一致。',
-    tags: ['視覺數據化', 'Design Tokens', 'Design-to-Code', 'Single Source of Truth'],
+    description: 'Bridging the gap between design and engineering through automated synchronization and consistent design specs.',
+    tags: ['Visual Datafication', 'Design Tokens', 'Design-to-Code', 'Single Source of Truth'],
     gradient: 'linear-gradient(135deg, #1B2A4A 0%, #2A9D8F 100%)',
     cover: '/images/work1/hero.png',
   },
   {
     to: '/works/filo',
-    type: 'AI-NATIVE 產品 / Code-to-Design 工作流',
+    type: 'AI-Native Product / Workflow Innovation',
     title: 'Filo',
-    description: '打造內建 Generative UI 的 AI-native 產品，建立 Code-to-Design 雙向同步工作流，實現代碼即設計，同步完成高保真原型驗證。',
-    tags: ['Generative UI', '快速原型', 'AI Workflow', '雙向同步'],
+    description: 'Building an AI-native product with Generative UI and a Code-to-Design workflow, enabling "Design as Code" with instant high-fidelity prototyping.',
+    tags: ['Generative UI', 'Rapid Prototyping', 'AI Workflow', 'Two-way Sync'],
     gradient: 'linear-gradient(135deg, #2A4A6B 0%, #2A9D8F 100%)',
     cover: '/images/work2/cover.png',
   },
   {
     to: '/works/cohealing',
-    type: '產品策略 / 0-to-1',
+    type: 'Product Strategy / 0-to-1',
     title: 'Cohealing',
-    description: '從品牌定位到產品規劃，完成 0-to-1 的完整設計交付。',
-    tags: ['產品策略', '品牌定位', '0-to-1', 'UIUX 設計'],
+    description: 'From brand positioning to product planning—delivering a complete 0-to-1 design roadmap.',
+    tags: ['Product Strategy', 'Brand Positioning', '0-to-1', 'UI/UX Design'],
     gradient: 'linear-gradient(135deg, #1B2A4A 0%, #3D6B8F 100%)',
     cover: '/images/Hero3.png',
   },

@@ -1,9 +1,10 @@
+<!-- layouts/default.vue -->
 <template>
   <div>
   <header class="fixed top-0 left-0 w-full z-50 border-b border-gray-100 backdrop-blur-md" style="background-color: rgba(255, 254, 253, 0.5)">
     <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
       <!-- Logo -->
-      <NuxtLink to="/" class="flex items-center gap-2">
+      <NuxtLink :to="isEn ? '/en' : '/'" class="flex items-center gap-2">
         <img src="/images/Logo.svg" alt="Tsai Wen Hsin" class="h-7" />
         <span class="text-sm font-bold tracking-widest text-navy uppercase">Tsai Wen Hsin</span>
       </NuxtLink>
@@ -23,14 +24,18 @@
           class="text-sm font-medium text-navy hover:text-teal transition-colors"
           @click="showContact = true"
         >
-          與我聯繫
+          {{ contactLabel }}
         </button>
         <NuxtLink
-          to="/works"
+          :to="worksLink"
           class="px-4 py-2 rounded-lg bg-navy text-white text-sm font-medium hover:opacity-90 transition-opacity"
         >
-          設計專案
+          {{ worksLabel }}
         </NuxtLink>
+        <div class="lang-switch">
+          <NuxtLink :to="enPath" :class="['lang-btn', isEn ? 'lang-active' : '']">EN</NuxtLink>
+          <NuxtLink :to="zhPath" :class="['lang-btn', !isEn ? 'lang-active' : '']">中文</NuxtLink>
+        </div>
       </nav>
 
       <!-- Mobile hamburger -->
@@ -55,7 +60,7 @@
     >
       <!-- Top bar -->
       <div class="flex items-center justify-between px-6 h-16 border-b border-gray-100">
-        <NuxtLink to="/" class="flex items-center gap-2" @click="menuOpen = false">
+        <NuxtLink :to="isEn ? '/en' : '/'" class="flex items-center gap-2" @click="menuOpen = false">
           <img src="/images/Logo.svg" alt="Tsai Wen Hsin" class="h-7" />
           <span class="text-sm font-bold tracking-widest text-navy uppercase">Tsai Wen Hsin</span>
         </NuxtLink>
@@ -82,15 +87,19 @@
           class="text-xl font-medium text-navy hover:text-teal transition-colors"
           @click="showContact = true; menuOpen = false"
         >
-          與我聯繫
+          {{ contactLabel }}
         </button>
         <NuxtLink
-          to="/works"
+          :to="worksLink"
           class="mt-2 px-8 py-3 rounded-lg bg-navy text-white text-base font-medium hover:opacity-90 transition-opacity"
           @click="menuOpen = false"
         >
-          設計專案
+          {{ worksLabel }}
         </NuxtLink>
+        <div class="lang-switch">
+          <NuxtLink :to="enPath" :class="['lang-btn', isEn ? 'lang-active' : '']" @click="menuOpen = false">EN</NuxtLink>
+          <NuxtLink :to="zhPath" :class="['lang-btn', !isEn ? 'lang-active' : '']" @click="menuOpen = false">中文</NuxtLink>
+        </div>
       </nav>
     </div>
   </Transition>
@@ -104,9 +113,26 @@ router.afterEach(() => { menuOpen.value = false })
 
 const showContact = useState('showContact', () => false)
 
-const navLinks = [
-  { label: '關於我', to: '/about' },
-]
+const route = useRoute()
+const isEn = computed(() => route.path.startsWith('/en'))
+
+const navLinks = computed(() => isEn.value
+  ? [{ label: 'About', to: '/en/about' }]
+  : [{ label: '關於我', to: '/about' }]
+)
+
+const worksLink = computed(() => isEn.value ? '/en/works' : '/works')
+const worksLabel = computed(() => isEn.value ? 'Works' : '設計專案')
+const contactLabel = computed(() => isEn.value ? 'Contact Me' : '與我聯繫')
+
+const enPath = computed(() => {
+  if (isEn.value) return route.path
+  return '/en' + (route.path === '/' ? '' : route.path)
+})
+const zhPath = computed(() => {
+  if (!isEn.value) return route.path
+  return route.path.replace(/^\/en/, '') || '/'
+})
 </script>
 
 <style scoped>
@@ -117,5 +143,29 @@ const navLinks = [
 .menu-fade-enter-from,
 .menu-fade-leave-to {
   opacity: 0;
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  background: #E8EDF2;
+  border-radius: 999px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.lang-btn {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6B7280;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.lang-active {
+  background: #1B2A4A;
+  color: white;
 }
 </style>

@@ -37,12 +37,12 @@
           <div class="flex flex-col gap-6 items-center text-center">
             <div>
               <h2 class="text-xl font-bold text-navy mb-1">Hey, Let's Build Something.</h2>
-              <p class="text-sm text-gray-500 leading-loose">有任何想法或問題，歡迎隨時聯繫。</p>
+              <p class="text-sm text-gray-500 leading-loose">{{ isEn ? 'Feel free to reach out anytime.' : '有任何想法或問題，歡迎隨時聯繫。' }}</p>
             </div>
 
             <div class="flex items-center gap-2 text-sm" style="color: #4B5563">
               <span>📍</span>
-              <span>新北市，台灣</span>
+              <span>{{ isEn ? 'New Taipei City, Taiwan' : '新北市，台灣' }}</span>
             </div>
 
             <!-- Contact methods -->
@@ -80,6 +80,8 @@ import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
 
 const showContact = useState('showContact', () => false)
+const route = useRoute()
+const isEn = computed(() => route.path.startsWith('/en'))
 
 function closeModal() {
   showContact.value = false
