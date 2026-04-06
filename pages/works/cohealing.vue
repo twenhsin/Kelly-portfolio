@@ -33,8 +33,8 @@
           <!-- Meta grid 2×2 -->
           <div class="grid grid-cols-2 gap-x-10 gap-y-5 mb-10">
             <div v-for="meta in project.meta" :key="meta.label">
-              <span class="block text-xs font-semibold tracking-widest uppercase mb-1" style="color: #9CA3AF">{{ meta.label }}</span>
-              <span class="text-sm font-medium text-navy">{{ meta.value }}</span>
+              <span class="block text-sm font-semibold tracking-widest uppercase mb-1" style="color: #9CA3AF">{{ meta.label }}</span>
+              <span class="text-base font-medium text-navy">{{ meta.value }}</span>
             </div>
           </div>
 
@@ -55,11 +55,11 @@
     ───────────────────────────────────────────── -->
     <section id="case-study" class="py-20" style="background: #f9fafb">
       <div class="max-w-2xl mx-auto px-6 text-center">
-        <h2 v-reveal class="text-2xl font-bold text-navy mb-2" style="line-height: 1.6; letter-spacing: 0.05em">
+        <h2 v-reveal class="text-3xl font-bold text-navy mb-2" style="line-height: 1.6; letter-spacing: 0.05em">
           專案背景
         </h2>
         <div class="w-8 h-1 bg-teal rounded-full mx-auto mb-8" />
-        <p v-reveal="{ delay: 80 }" class="text-sm text-gray-600 leading-loose mb-10">
+        <p v-reveal="{ delay: 80 }" class="text-base text-gray-600 leading-loose mb-10">
           {{ project.background.body }}
         </p>
         <!-- Highlight callout -->
@@ -76,7 +76,7 @@
     <section class="py-20">
       <div class="max-w-6xl mx-auto px-6">
         <div v-reveal class="text-center mb-12">
-          <h2 class="text-2xl font-bold text-navy mb-2">{{ project.challenges.title }}</h2>
+          <h2 class="text-3xl font-bold text-navy mb-2">{{ project.challenges.title }}</h2>
           <div class="w-8 h-1 bg-teal rounded-full mx-auto mb-4" />
           <p class="text-sm text-gray-500 leading-loose">{{ project.challenges.subtitle }}</p>
         </div>
@@ -108,7 +108,7 @@
       <div class="max-w-6xl mx-auto px-6">
         <!-- Heading -->
         <div v-reveal class="mb-16 text-center">
-          <h2 class="text-2xl font-bold text-navy mb-2">{{ project.decisions.title }}</h2>
+          <h2 class="text-3xl font-bold text-navy mb-2">{{ project.decisions.title }}</h2>
           <div class="w-8 h-1 bg-teal rounded-full mx-auto" />
         </div>
 
@@ -173,9 +173,9 @@
     <section class="py-20">
       <div class="max-w-6xl mx-auto px-6">
         <div v-reveal class="mb-10 text-center">
-          <h2 class="text-2xl font-bold text-navy mb-2">{{ project.product.title }}</h2>
+          <h2 class="text-3xl font-bold text-navy mb-2">{{ project.product.title }}</h2>
           <div class="w-8 h-1 bg-teal rounded-full mx-auto mb-3" />
-          <p class="text-sm text-gray-600 leading-loose max-w-2xl mx-auto">{{ project.product.body }}</p>
+          <p class="text-base text-gray-600 leading-loose max-w-2xl mx-auto">{{ project.product.body }}</p>
         </div>
 
         <!-- Carousel -->
@@ -191,9 +191,9 @@
     <section class="py-20" style="background: #f9fafb">
       <div class="max-w-6xl mx-auto px-6">
         <div v-reveal class="mb-10 text-center">
-          <h2 class="text-2xl font-bold text-navy mb-2">{{ project.design.title }}</h2>
+          <h2 class="text-3xl font-bold text-navy mb-2">{{ project.design.title }}</h2>
           <div class="w-8 h-1 bg-teal rounded-full mx-auto mb-3" />
-          <p class="text-sm text-gray-600 leading-loose max-w-2xl mx-auto">{{ project.design.body }}</p>
+          <p class="text-base text-gray-600 leading-loose max-w-2xl mx-auto">{{ project.design.body }}</p>
         </div>
 
         <div v-reveal="{ delay: 100 }">
@@ -208,9 +208,9 @@
     <section class="py-20">
       <div class="max-w-6xl mx-auto px-6">
         <div v-reveal class="mb-10 text-center">
-          <h2 class="text-2xl font-bold text-navy mb-2">{{ project.brand.title }}</h2>
+          <h2 class="text-3xl font-bold text-navy mb-2">{{ project.brand.title }}</h2>
           <div class="w-8 h-1 bg-teal rounded-full mx-auto mb-3" />
-          <p class="text-sm text-gray-600 leading-loose max-w-2xl mx-auto">{{ project.brand.body }}</p>
+          <p class="text-base text-gray-600 leading-loose max-w-2xl mx-auto">{{ project.brand.body }}</p>
         </div>
 
         <div v-reveal="{ delay: 100 }">

@@ -6,7 +6,7 @@
     <section class="max-w-6xl mx-auto px-6 pt-24 pb-20 flex flex-col-reverse md:flex-row items-center gap-12">
       <!-- Left: copy -->
       <div v-reveal class="flex-1 flex flex-col gap-6">
-        <span class="text-xs font-semibold tracking-widest uppercase" style="color: #2A9D8F">
+        <span class="text-sm font-semibold tracking-widest uppercase" style="color: #2A9D8F">
           AI 協作設計師
         </span>
 
@@ -14,7 +14,7 @@
           用策略與系統思維解決產品問題，定義設計師與 AI 協作的工作方式。
         </h1>
 
-        <p class="text-base text-gray-500 leading-relaxed max-w-md">
+        <p class="text-lg text-gray-500 leading-relaxed">
           從藝術到產品、從執行到策略，我把跨團隊經驗帶入 AI 時代。
         </p>
 
@@ -51,7 +51,7 @@
       <div class="max-w-6xl mx-auto px-6">
         <!-- Heading -->
         <div v-reveal class="mb-10">
-          <h2 class="text-2xl font-bold text-navy mb-2">專業能力</h2>
+          <h2 class="text-3xl font-bold text-navy mb-2">專業能力</h2>
           <div class="w-8 h-1 bg-teal rounded-full" />
         </div>
 
@@ -114,7 +114,7 @@
     <section class="max-w-6xl mx-auto px-6 pt-20 pb-40">
       <!-- Heading -->
       <div v-reveal class="mb-12">
-        <h2 class="text-2xl font-bold text-navy mb-2">設計專案</h2>
+        <h2 class="text-3xl font-bold text-navy mb-2">設計專案</h2>
         <div class="w-8 h-1 bg-teal rounded-full" />
       </div>
 

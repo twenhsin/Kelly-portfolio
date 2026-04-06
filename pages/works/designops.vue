@@ -39,8 +39,8 @@
           <!-- Meta grid 2×2 -->
           <div class="grid grid-cols-2 gap-x-10 gap-y-5 mb-10">
             <div v-for="meta in project.meta" :key="meta.label">
-              <span class="block text-xs font-semibold tracking-widest uppercase mb-1" style="color: #9CA3AF">{{ meta.label }}</span>
-              <span class="text-sm font-medium text-navy">{{ meta.value }}</span>
+              <span class="block text-sm font-semibold tracking-widest uppercase mb-1" style="color: #9CA3AF">{{ meta.label }}</span>
+              <span class="text-base font-medium text-navy">{{ meta.value }}</span>
             </div>
           </div>
         </div>
@@ -70,12 +70,12 @@
             <div class="w-1 h-4 rounded-full bg-teal" />
             <span class="text-xs font-semibold tracking-widest uppercase" style="color: #2A9D8F">{{ section.label }}</span>
           </div>
-          <h2 class="text-2xl font-bold text-navy mb-2" style="line-height: 1.5">
+          <h2 class="text-3xl font-bold text-navy mb-2" style="line-height: 1.5">
             {{ section.title }}
           </h2>
           <div class="w-8 h-1 bg-teal rounded-full mb-4" :class="section.center ? 'mx-auto' : ''" />
           <p
-            class="text-sm text-gray-600 leading-loose mb-10"
+            class="text-base text-gray-600 leading-loose mb-10"
             :class="section.center ? 'mx-auto max-w-xl' : 'max-w-3xl'"
           >
             {{ section.body }}
@@ -187,7 +187,7 @@
 
         <!-- Section heading -->
         <div v-reveal class="mb-12">
-          <h2 class="text-2xl font-bold text-navy mb-2">過程</h2>
+          <h2 class="text-3xl font-bold text-navy mb-2">過程</h2>
           <div class="w-8 h-1 rounded-full" style="background: #2A9D8F" />
         </div>
 
@@ -394,16 +394,17 @@
       <section v-if="section.outcomes" class="py-[84px]" :style="section.bg ? `background: ${section.bg}` : ''">
         <div class="max-w-6xl mx-auto px-6">
           <div v-reveal class="text-center mb-12">
-            <h2 class="text-2xl font-bold text-navy mb-2">{{ section.title }}</h2>
+            <h2 class="text-3xl font-bold text-navy mb-2">{{ section.title }}</h2>
             <div class="w-8 h-1 bg-teal rounded-full mx-auto" />
           </div>
 
           <!-- Top: 最終結果 -->
           <div v-reveal="{ delay: 100 }" class="rounded-2xl p-8 mb-6" style="background: #fff; border: 1px solid rgba(0,0,0,0.06)">
-            <div class="flex items-center gap-2 mb-6">
+            <div class="flex items-center gap-2 mb-3">
               <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
               <h3 class="text-base font-bold text-navy">{{ section.outcomes.left.title }}</h3>
             </div>
+            <p class="text-sm text-gray-500 leading-loose mb-6">實現設計與開發的自動化同步，解決過去設計開發兩端的斷層落差，降低交付與維護成本。</p>
             <div class="grid sm:grid-cols-2 gap-5">
               <div v-for="item in section.outcomes.left.items" :key="item.title" class="flex gap-3 items-start">
                 <svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color: #2A9D8F" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">

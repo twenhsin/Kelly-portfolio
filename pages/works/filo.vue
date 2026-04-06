@@ -39,16 +39,16 @@
           <!-- Meta grid 2×2 -->
           <div class="grid grid-cols-2 gap-x-10 gap-y-5 mb-10">
             <div v-for="meta in project.meta" :key="meta.label">
-              <span class="block text-xs font-semibold tracking-widest uppercase mb-1" style="color: #9CA3AF">{{ meta.label }}</span>
+              <span class="block text-sm font-semibold tracking-widest uppercase mb-1" style="color: #9CA3AF">{{ meta.label }}</span>
               <a
                 v-if="meta.link"
                 :href="`https://${meta.value}`"
                 target="_blank"
                 rel="noopener"
-                class="text-sm font-medium underline underline-offset-2"
+                class="text-base font-medium underline underline-offset-2"
                 style="color: #2A9D8F"
               >{{ meta.value }}</a>
-              <span v-else class="text-sm font-medium text-navy">{{ meta.value }}</span>
+              <span v-else class="text-base font-medium text-navy">{{ meta.value }}</span>
             </div>
           </div>
 
@@ -84,12 +84,12 @@
             <div class="w-1 h-4 rounded-full bg-teal" />
             <span class="text-xs font-semibold tracking-widest uppercase" style="color: #2A9D8F">{{ section.label }}</span>
           </div>
-          <h2 class="text-2xl font-bold text-navy mb-2" style="line-height: 1.5">
+          <h2 class="text-3xl font-bold text-navy mb-2" style="line-height: 1.5">
             {{ section.title }}
           </h2>
           <div class="w-8 h-1 bg-teal rounded-full mb-4" :class="section.center ? 'mx-auto' : ''" />
           <p
-            class="text-sm text-gray-600 leading-loose mb-10"
+            class="text-base text-gray-600 leading-loose mb-10"
             :class="section.center ? 'mx-auto max-w-xl' : 'max-w-3xl'"
           >
             {{ section.body }}
@@ -191,7 +191,7 @@
         <div class="max-w-6xl mx-auto px-6">
           <!-- Section heading -->
           <div v-reveal class="mb-12">
-            <h2 class="text-2xl font-bold text-navy mb-2" style="line-height: 1.5">{{ section.title }}</h2>
+            <h2 class="text-3xl font-bold text-navy mb-2" style="line-height: 1.5">{{ section.title }}</h2>
             <div class="w-8 h-1 bg-teal rounded-full" />
           </div>
 
@@ -203,35 +203,43 @@
               v-reveal="{ delay: pi * 100 }"
             >
 
-              <!-- ── Layout A: left label + right card (Phase 1 style) ── -->
-              <div v-if="phase.steps" class="flex flex-col md:flex-row gap-6 md:gap-16 items-start">
-                <!-- Left col: full on mobile, ~32% on desktop -->
-                <div class="w-full md:w-[32%] md:flex-shrink-0">
-                  <div class="text-6xl font-black mb-2 leading-none" style="color: rgba(42,157,143,0.22)">
-                    {{ String(pi + 1).padStart(2, '0') }}
+              <!-- ── Layout A: top row (label + image), bottom row (card) ── -->
+              <div v-if="phase.steps" class="flex flex-col gap-8">
+
+                <!-- Top row: left label + right image -->
+                <div class="flex flex-col md:flex-row items-start gap-12">
+                  <!-- Left: number + title + tags -->
+                  <div class="flex-1">
+                    <div class="text-6xl font-black mb-2 leading-none" style="color: rgba(42,157,143,0.22)">
+                      {{ String(pi + 1).padStart(2, '0') }}
+                    </div>
+                    <h3 class="text-xl font-bold text-navy mb-4">{{ phase.title }}</h3>
+                    <div v-if="phase.tags" class="flex flex-wrap gap-2">
+                      <span
+                        v-for="tag in phase.tags"
+                        :key="tag"
+                        class="text-xs px-3 py-1 rounded-full font-medium"
+                        style="background: rgba(42,157,143,0.1); color: #2A9D8F"
+                      >{{ tag }}</span>
+                    </div>
                   </div>
-                  <h3 class="text-xl font-bold text-navy mb-4">{{ phase.title }}</h3>
-                  <div v-if="phase.tags" class="flex flex-wrap gap-2">
-                    <span
-                      v-for="tag in phase.tags"
-                      :key="tag"
-                      class="text-xs px-3 py-1 rounded-full font-medium"
-                      style="background: rgba(42,157,143,0.1); color: #2A9D8F"
-                    >{{ tag }}</span>
+                  <!-- Right: image -->
+                  <div class="flex-1">
+                    <img src="/images/work2/phase1.png" alt="Phase 1" class="w-full rounded-xl object-contain" />
                   </div>
                 </div>
 
-                <!-- Right: white card (~68%) -->
+                <!-- Bottom row: full-width card -->
                 <div
-                  class="rounded-2xl p-6 min-w-0"
-                  style="flex: 1; background: #fff; border: 1px solid rgba(0,0,0,0.07); box-shadow: 0 2px 16px rgba(0,0,0,0.05)"
+                  class="rounded-2xl p-6"
+                  style="background: #fff; border: 1px solid rgba(0,0,0,0.07); box-shadow: 0 2px 16px rgba(0,0,0,0.05)"
                 >
-                  <!-- Description: full width at top -->
+                  <!-- Description -->
                   <p class="text-sm text-gray-600 leading-loose mb-6">{{ phase.body }}</p>
 
-                  <!-- Steps + KEY DISCOVERY: stacked on mobile, side by side on desktop -->
+                  <!-- Steps + KEY DISCOVERY -->
                   <div class="flex flex-col md:flex-row gap-5 items-start">
-                    <!-- Steps col (60%) -->
+                    <!-- Steps col -->
                     <div class="min-w-0 flex flex-col gap-4" style="flex: 6">
                       <div v-for="(step, si) in phase.steps" :key="si" class="flex gap-3 items-start">
                         <span
@@ -245,7 +253,7 @@
                       </div>
                     </div>
 
-                    <!-- KEY DISCOVERY col (30% on desktop, full on mobile) -->
+                    <!-- KEY DISCOVERY col -->
                     <div
                       v-if="phase.discovery"
                       class="w-full rounded-xl p-4 md:w-auto"
@@ -256,6 +264,7 @@
                     </div>
                   </div>
                 </div>
+
               </div>
 
               <!-- ── Layout D: security / standalone section ── -->
@@ -292,59 +301,32 @@
                 </div>
               </div>
 
-              <!-- ── Layout B: left card + right label (Phase 2 style, mirrored) ── -->
-              <div v-else-if="!phase.accent" class="flex flex-col-reverse md:flex-row gap-6 md:gap-16 items-start">
+              <!-- ── Layout B: left (image + card) + right label (Phase 2 style) ── -->
+              <div v-else-if="!phase.accent" class="flex flex-col md:flex-row gap-12 items-start">
 
-                <!-- Left: white card (~68%) -->
-                <div
-                  class="rounded-2xl p-6 min-w-0"
-                  style="flex: 1; background: #fff; border: 1px solid rgba(0,0,0,0.07); box-shadow: 0 2px 16px rgba(0,0,0,0.05)"
-                >
-                  <!-- Top row: text + center icon -->
-                  <div class="flex gap-6 mb-6">
-                    <div class="flex-1 min-w-0">
-                      <p v-if="phase.leftBody" class="text-sm text-gray-600 leading-loose">{{ phase.leftBody }}</p>
-                      <p v-if="phase.highlightText" class="text-sm text-gray-600 leading-loose mt-1">
-                        <span v-html="phase.highlightText" />
-                      </p>
-                    </div>
-                    <div
-                      v-if="phase.centerIcon"
-                      class="flex-shrink-0 flex flex-col items-center justify-center rounded-2xl"
-                      style="background: rgba(42,157,143,0.08); width: 120px; height: 120px"
-                    >
-                      <span style="color: #2A9D8F" v-html="phase.centerIcon" />
-                      <span class="text-xs font-semibold text-center text-gray-500 mt-2">{{ phase.centerLabel }}</span>
-                    </div>
-                  </div>
+                <!-- Left col (flex-3): image + white card -->
+                <div class="flex flex-col gap-6 min-w-0" style="flex: 3">
+                  <!-- Image -->
+                  <img src="/images/work2/phase2.png" alt="Phase 2" class="w-full rounded-xl object-contain" />
 
-                  <!-- Flow steps -->
+                  <!-- White card -->
                   <div
-                    v-if="phase.flow"
-                    class="flex items-center mb-6 rounded-xl px-5 py-4"
-                    style="background: #f9fafb"
+                    class="rounded-2xl p-6"
+                    style="background: #fff; border: 1px solid rgba(0,0,0,0.07); box-shadow: 0 2px 16px rgba(0,0,0,0.05)"
                   >
-                    <template v-for="(step, si) in phase.flow" :key="si">
-                      <div class="flex-1 text-center">
-                        <div class="text-xs text-gray-400 mb-1">{{ step.label }}</div>
-                        <div class="text-sm font-bold text-navy">{{ step.value }}</div>
-                      </div>
-                      <svg v-if="si < phase.flow.length - 1" class="w-4 h-4 flex-shrink-0 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                      </svg>
-                    </template>
-                  </div>
+                    <p class="text-sm text-gray-600 leading-loose mb-6">{{ phase.leftBody }}</p>
 
-                  <!-- Bottom KEY DISCOVERY -->
-                  <div v-if="phase.discoveryBottom" class="rounded-xl p-5" style="background: rgba(42,157,143,0.08); border: 1px solid rgba(42,157,143,0.15)">
-                    <div class="text-xs font-bold tracking-widest uppercase mb-2" style="color: #2A9D8F">Key Discovery</div>
-                    <p class="text-base text-navy font-semibold mb-1">{{ phase.discoveryBottom.title }}</p>
-                    <p class="text-sm text-gray-600 leading-loose">{{ phase.discoveryBottom.body }}</p>
+                    <!-- KEY DISCOVERY -->
+                    <div v-if="phase.discoveryBottom" class="rounded-xl p-5" style="background: rgba(42,157,143,0.08); border: 1px solid rgba(42,157,143,0.15)">
+                      <div class="text-xs font-bold tracking-widest uppercase mb-2" style="color: #2A9D8F">Key Discovery</div>
+                      <p class="text-base text-navy font-semibold mb-1">{{ phase.discoveryBottom.title }}</p>
+                      <p class="text-sm text-gray-600 leading-loose">{{ phase.discoveryBottom.body }}</p>
+                    </div>
                   </div>
                 </div>
 
-                <!-- Right: no card (~32%) -->
-                <div class="w-full md:w-[32%] md:flex-shrink-0">
+                <!-- Right col (flex-1): number + title + body -->
+                <div class="min-w-0" style="flex: 1">
                   <div class="text-6xl font-black mb-2 leading-none" style="color: rgba(42,157,143,0.22)">
                     {{ String(pi + 1).padStart(2, '0') }}
                   </div>
@@ -400,26 +382,55 @@
         <div class="max-w-6xl mx-auto px-6">
           <!-- Centered heading -->
           <div v-reveal class="text-center mb-12">
-            <h2 class="text-2xl font-bold text-navy mb-2">{{ section.title }}</h2>
+            <h2 class="text-3xl font-bold text-navy mb-2">{{ section.title }}</h2>
             <div class="w-8 h-1 bg-teal rounded-full mx-auto" />
           </div>
 
-          <!-- Top: 最終結果 (light card) -->
+          <!-- Top: 最終結果 card -->
           <div v-reveal="{ delay: 100 }" class="rounded-2xl p-8 mb-6" style="background: #fff; border: 1px solid rgba(0,0,0,0.06)">
-            <div class="flex items-center gap-2 mb-6">
-              <div class="w-1 h-5 rounded-full" style="background: #2A9D8F" />
-              <h3 class="text-base font-bold text-navy">{{ section.outcomes.left.title }}</h3>
+
+            <!-- Section label with green bar -->
+            <div class="flex items-center gap-3 mb-6">
+              <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
+              <h3 class="font-bold text-navy text-base">{{ section.outcomes.left.title }}</h3>
             </div>
-            <div class="grid sm:grid-cols-2 gap-5">
-              <div v-for="item in section.outcomes.left.items" :key="item.title" class="flex gap-3 items-start">
-                <svg class="w-4 h-4 flex-shrink-0 mt-0.5" style="color: #2A9D8F" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <div>
-                  <div class="text-base font-bold text-navy mb-1">{{ item.title }}</div>
-                  <p class="text-sm text-gray-600 leading-loose">{{ item.body }}</p>
+
+            <!-- Two columns -->
+            <div class="flex flex-col md:flex-row gap-10">
+
+              <!-- Left column -->
+              <div class="flex-1">
+                <div class="font-bold mb-1" style="color: #2A9D8F">AI 協作工作流</div>
+                <p class="text-sm text-gray-500 leading-loose mb-4">大幅縮短過去每個階段的執行時程</p>
+                <div class="flex flex-col gap-4">
+                  <div v-for="item in section.outcomes.left.items.filter(i => i.body)" :key="item.title" class="flex gap-3 items-start">
+                    <span class="flex-shrink-0 rounded-full mt-2" style="width: 6px; height: 6px; background: #2A9D8F; margin-top: 7px" />
+                    <div>
+                      <div class="font-semibold text-navy text-sm mb-0.5">{{ item.title }}</div>
+                      <p class="text-sm text-gray-600 leading-loose">{{ item.body }}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
+
+              <!-- Divider -->
+              <div class="hidden md:block w-px self-stretch" style="background: rgba(0,0,0,0.07)" />
+
+              <!-- Right column -->
+              <div class="flex-1">
+                <div class="font-bold mb-1" style="color: #2A9D8F">{{ section.outcomes.rightCol.title }}</div>
+                <p class="text-sm text-gray-500 leading-loose mb-4">{{ section.outcomes.rightCol.subtitle }}</p>
+                <div class="flex flex-col gap-4">
+                  <div v-for="item in section.outcomes.rightCol.items" :key="item.title" class="flex gap-3 items-start">
+                    <span class="flex-shrink-0 rounded-full" style="width: 6px; height: 6px; background: #2A9D8F; margin-top: 7px" />
+                    <div>
+                      <div class="font-semibold text-navy text-sm mb-0.5">{{ item.title }}</div>
+                      <p class="text-sm text-gray-600 leading-loose">{{ item.body }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
 
@@ -562,7 +573,6 @@ const project = {
       phases: [
         {
           title: 'Phase 1: 快速建立 MVP',
-          tags: ['AI 協作執行', '高擬真 Prototype', '完整前後端'],
           steps: [
             { title: 'Google Stitch → Figma', sub: '生成視覺方向，萃取設計語言，調整主畫面' },
             { title: 'Claude + Claude Code', sub: '以截圖加口述指令協作開發，設計師負責決策與檢視' },
@@ -573,22 +583,14 @@ const project = {
         },
         {
           title: 'Phase 2: 設計系統化',
-          leftBody: '從 Claude Code 已生成的 UI 反向提取設計規律，整理進 Figma，匯出',
-          highlightText: '<span style="color:#2A9D8F;font-weight:600">tokens.json</span> 讓設計與開發發對齊，也讓專案具備持續擴充的基礎。',
-          centerIcon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 8a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zm8-8a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2h-2zm0 8a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2z" /></svg>`,
-          centerLabel: 'Rules & Tokens',
+          leftBody: '由 Claude Code 生成的頁面、component 與 tokens.json 反向提取設計規律，導入 Figma。匯出的 tokens.json 讓設計與開發對齊，也讓專案具備持續擴充的基礎。',
           rightCol: {
             title: 'Phase 2: 設計系統化',
             body: '為專案建立可持續開發與維護的結構。',
           },
-          flow: [
-            { label: 'Capture', value: 'Claude UI' },
-            { label: 'Organize', value: 'Figma' },
-            { label: 'Standardize', value: 'Rules Engine' },
-          ],
           discoveryBottom: {
             title: 'AI 驅動的 TOKEN 自動化流程',
-            body: '以往手動整理 TSF 耗費大量時間。這次透過 Claude Code 生成介面的同時產出 tokens.json，匯入 TSF 微調後直接導出。省去了繁重的設定工作，設計系統的同步效率大幅提升。',
+            body: '透過 Code to Design 模式，省去過去繁重的設計設定工作，設計系統的同步效率大幅提升。',
           },
         },
         {
@@ -633,20 +635,31 @@ const project = {
           title: '最終結果',
           items: [
             {
-              title: '產品層面',
-              body: '從概念到可上線的全端 PWA，在保留傳統操作習慣的同時，深度整合 AI 語音、文字與拍照掃描功能。透過 AI 自動分類、自然語言查詢與 Generative UI，為不同使用習慣的用戶提供過渡至 AI 驅動記帳的可能性。',
+              title: 'AI 協作工作流',
+              subtitle: '大幅縮短過去每個階段的執行時程',
+              body: '',
             },
             {
-              title: '設計系統層面',
-              body: '從 Claude Code 已生成的介面反向提取設計規律，透過 tokens.json 在 Figma 與 Claude Code 之間雙向對齊——設計決策得以被記錄、複用，形成可持續擴充與維護的設計系統。',
+              title: '快速原型',
+              body: '截圖加口述指令，Code to Design，快速生成設計介面與可測試的真實 Prototype。',
             },
             {
-              title: '工作流程層面',
-              body: '從視覺與功能探索到開發交付，建立了一套以 AI 協作為核心的完整工作循環。這套流程不限制於此專案，可直接沿用於下一個 0-1 產品的快速啟動。',
+              title: '反向設計系統',
+              body: '從 Code 生成的介面反向萃取設計規律，設計系統在開發完成的同時同步建立。',
+            },
+          ],
+        },
+        rightCol: {
+          title: 'AI-native 產品實踐',
+          subtitle: '降低記帳時間成本，快速獲取帳務資訊',
+          items: [
+            {
+              title: '多元輸入 × AI 處理',
+              body: '整合語音、文字、拍照三種輸入，AI 分類並支援自然語言查詢，操作負擔從用戶轉移給系統。',
             },
             {
-              title: '可複用 AI 產品框架',
-              body: '這件作品建立的不只是一個產品，而是一套可快速複製的 AI 產品開發框架——Nuxt 3 + Supabase + Claude/GPT API + Vercel + PWA。涵蓋 RLS 權限設計、API 安全防護、成本控制與 iOS 相容性的實戰經驗，可直接沿用於下一個 AI 產品的快速啟動。',
+              title: 'Generative UI 落地',
+              body: '設計師定義生成規則，AI 根據用戶意圖動態調用介面，一致性與靈活性共存。',
             },
           ],
         },

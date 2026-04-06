@@ -48,7 +48,7 @@
     <section class="bg-gray-50 py-20" style="position: relative; z-index: 0">
       <div class="max-w-6xl mx-auto px-6">
         <div v-reveal class="mb-10 text-center">
-          <h2 class="text-2xl font-bold text-navy mb-2">設計主張</h2>
+          <h2 class="text-3xl font-bold text-navy mb-2">設計主張</h2>
           <div class="w-8 h-1 bg-teal rounded-full mx-auto" />
         </div>
 
@@ -98,7 +98,7 @@
     <section class="py-20">
       <div class="max-w-4xl mx-auto px-6">
         <div v-reveal class="text-center mb-16">
-          <h2 class="text-2xl font-bold text-navy mb-2">工作與學習歷程</h2>
+          <h2 class="text-3xl font-bold text-navy mb-2">工作與學習歷程</h2>
           <div class="w-8 h-1 bg-teal rounded-full mx-auto" />
         </div>
 
