@@ -24,9 +24,7 @@
         <div class="flex flex-col gap-2">
           <span class="text-sm font-semibold text-navy">Social</span>
           <div class="flex gap-4">
-            <a href="#" class="text-sm text-gray-500 hover:text-teal transition-colors">LinkedIn</a>
-            <a href="#" class="text-sm text-gray-500 hover:text-teal transition-colors">Dribbble</a>
-            <a href="#" class="text-sm text-gray-500 hover:text-teal transition-colors">Twitter</a>
+            <a href="https://www.behance.net/wenhsin600cc8c" target="_blank" rel="noopener" class="text-sm text-gray-500 hover:text-teal transition-colors">Behance</a>
           </div>
         </div>
       </div>

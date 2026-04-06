@@ -646,7 +646,7 @@ const project = {
             },
             {
               title: '快速原型',
-              body: '截圖加口述指令，Code to Design，快速生成設計介面與可測試的真實 Prototype。',
+              body: '截圖加口述指令，Code-to-Design 雙向同步，在開發過程中同步產出具備實體邏輯的高保真原型，大幅縮短產品從發想到驗證的週期。',
             },
             {
               title: '反向設計系統',
@@ -664,7 +664,7 @@ const project = {
             },
             {
               title: 'Generative UI 落地',
-              body: '設計師定義生成規則，AI 根據用戶意圖動態調用介面，一致性與靈活性共存。',
+              body: '設計師定義生成邏輯與 UI 規範，AI 根據用戶進行「意圖偵測 (Intent Detection)」並即時觸發「動態組件映射 (Dynamic Mapping)」',
             },
           ],
         },

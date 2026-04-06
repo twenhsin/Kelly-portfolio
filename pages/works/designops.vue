@@ -326,7 +326,7 @@
                 <div class="flex-shrink-0" style="background: #2A9D8F; height: 20px; width: 4px" />
                 <h4 class="font-bold text-navy" style="font-size: 16px">Hardcode 數值掃描</h4>
               </div>
-              <p class="text-gray-600 leading-loose" style="font-size: 16px">建立自動掃描機制腳本，確認元件正確引用 token 而非直接寫死數值——確保設計系統的規則真正被執行，而不只是存在於文件裡。</p>
+              <p class="text-gray-600 leading-loose" style="font-size: 16px">建立自動掃描機制腳本，確認元件正確引用 token 而非直接寫死數值。確保設計與開發的 Single Source of Truth (SSOT) 獲得技術性的強制執行。</p>
             </div>
 
           </div>
@@ -505,7 +505,7 @@ const project = {
           title: '問題根源',
           accent: false,
           items: [
-            '無規則的代價——設計師與工程師各做各的，視覺一致性崩解',
+            '無規則的代價——設計師與工程師各做各的，視覺一致性難以維持',
             '即使有設計系統，也不一定被有效使用',
             '設計系統修改時，工程師需要花大量時間手動對照調整',
           ],
@@ -534,7 +534,7 @@ const project = {
         {
           icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>`,
           title: '如何建立',
-          body: '以 TSF 三層 token 架構建立可複用且結構化的設計規則，成為設計師、工程師與 AI 能讀懂的共同語言。',
+          body: '以 TSF 三層 token 架構（Decoupling）建立可複用且結構化的設計規則，成為設計師、工程師與 AI 能讀懂的共同語言。',
         },
         {
           icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
@@ -571,8 +571,8 @@ const project = {
               body: '這套架構讓設計意圖可以被 AI 正確讀取並執行，成為後續產品開發的可擴充基礎。',
             },
             {
-              title: '複用邏輯',
-              body: '換品牌只改 core，換主題只改 dark/light 對應關係，元件層完全不動。',
+              title: '系統復用與維護優化',
+              body: '透過「結構分離（Decoupling）」視覺與元件邏輯。達成更換品牌或主題時，僅需調整 Core Token，無需動到元件代碼即可完成全局更新，極大化系統復用並降低維護成本。',
             },
           ],
         },
