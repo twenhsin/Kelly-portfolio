@@ -219,7 +219,7 @@ const timeline = [
     company: 'Kylab',
     period: '2024/02 — Present',
     description: 'As the sole Web Designer, independently leading official website and multi-language frontend development while deepening proficiency in Vue / Nuxt.',
-    fullDescription: "Serving as the team's sole Web Designer, I independently lead the design and multi-language frontend development of the corporate website. I proactively plan workflows and gather necessary information from stakeholders when requirements are ambiguous, defining visual styles for various brand sites. Post-acquisition, I rapidly mastered the Docsify platform to complete content adjustments and layout optimizations. Additionally, I autonomously architected the member backend management system, further strengthening my independent development capabilities in Vue and Nuxt.",
+    fullDescription: "Serving as the team's sole Web Designer, I independently lead the design and multi-language frontend development of the corporate website. I proactively plan workflows and gather necessary information from stakeholders when requirements are ambiguous, defining visual styles for various brand sites. Post-acquisition, I rapidly mastered the Doclify platform to complete content adjustments and layout optimizations. Additionally, I autonomously architected the member backend management system, further strengthening my independent development capabilities in Vue and Nuxt.",
   },
   {
     type: 'work',
