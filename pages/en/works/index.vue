@@ -16,7 +16,7 @@
         <h1 class="text-4xl md:text-5xl font-bold text-navy mb-2" style="line-height: 1.3">Works</h1>
         <div class="w-8 h-1 bg-teal rounded-full mb-4" />
         <p class="text-sm text-gray-500 leading-loose max-w-lg">
-          Three representative projects documenting the complete thinking process from problem definition to final design.
+          Focused on AI-collaborative design workflows and DesignOps systemization, with end-to-end product strategy capabilities from 0 to 1.
         </p>
       </div>
     </section>

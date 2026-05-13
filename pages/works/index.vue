@@ -16,7 +16,7 @@
         <h1 class="text-4xl md:text-5xl font-bold text-navy mb-2" style="line-height: 1.3">設計專案</h1>
         <div class="w-8 h-1 bg-teal rounded-full mb-4" />
         <p class="text-sm text-gray-500 leading-loose max-w-lg">
-          三件代表性專案，記錄從問題定義到最終設計的完整思考過程。
+          專注於 AI 協作設計流程與 DesignOps 系統化實踐，同時具備從零到一的完整產品策略規劃能力。
         </p>
       </div>
     </section>
